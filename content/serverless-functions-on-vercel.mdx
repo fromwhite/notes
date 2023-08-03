@@ -1,0 +1,34 @@
+---
+title: Serverless Functions on Vercel
+date: "2023-6-18"
+tags:
+  - 🦀
+  - serverless functions
+  - vercel
+  - rust
+  - wasm
+---
+
+# Serverless Functions on Vercel
+
+This is a test of MDX, which its still a lot of incomplete parts and may be completed
+
+Note: Estimate Pi with Monte Carlo Method
+
+```rust
+let mut rng = oorandom::Rand32::new(seed);
+const RADIUS: u64 = 424242;
+const LOOPS: u64 = 1_000_000;
+
+let mut counter = 0;
+for _ in 0..LOOPS {
+  let x: u64 = rng.rand_range(1..RADIUS as u32).into();
+  let y: u64 = rng.rand_range(1..RADIUS as u32).into();
+
+  if (x.pow(2) + y.pow(2)) < (RADIUS.pow(2)) {
+    counter += 1;
+  }
+}
+
+let pi = (4.0 * counter as f64) / LOOPS as f64;
+```
