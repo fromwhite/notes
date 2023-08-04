@@ -1,10 +1,10 @@
 "use client";
 import { CMD, Tag } from "./geist";
-import ModeSwitcher from "./ModeSwitcher";
+import { ModeSwitcher } from "./ModeSwitcher";
 import { Button } from "./ui";
 // import useHasMounted from "./hook/useHasMounted";
 
-export default () => {
+export const Panel = () => {
   // const hasMounted = useHasMounted();
   return (
     // hasMounted &&

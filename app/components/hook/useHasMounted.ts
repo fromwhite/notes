@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-export default () => {
+export const useHasMounted = () => {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {

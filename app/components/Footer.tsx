@@ -1,4 +1,4 @@
-export default () => {
+export const Footer = () => {
   return (
     <footer>
       <div>

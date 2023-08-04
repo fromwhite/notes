@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-export default () => {
+export const useDarkMode = () => {
   const [theme, set] = useState(
     (typeof window !== "undefined" && localStorage.getItem("MODE")) ||
       "light dark"

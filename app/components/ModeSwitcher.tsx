@@ -1,9 +1,9 @@
 "use client";
 import { Day, Night } from "./geist";
 import { Button } from "./ui";
-import useDarkMode from "./hook/useDarkMode";
+import { useDarkMode } from "./hook/useDarkMode";
 
-export default function () {
+export const ModeSwitcher = () => {
   const [theme, set] = useDarkMode();
 
   return (
@@ -25,4 +25,4 @@ export default function () {
       )}
     </>
   );
-}
+};

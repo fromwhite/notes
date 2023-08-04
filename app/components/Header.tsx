@@ -1,9 +1,9 @@
 import styles from "./Header.module.scss";
 import Link from "next/link";
 import { Avatar, Git, Twitter, Instagram } from "./geist";
-import HeaderPanel from "./Header.panel";
+import { Panel } from "./Header.panel";
 
-export default () => {
+export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
@@ -20,7 +20,7 @@ export default () => {
           <nav className={styles.nav}>
             {/* <span>Snippets</span> */}
 
-            <HeaderPanel />
+            <Panel />
             {/* sns */}
             {process.env.NEXT_PUBLIC_TWITTER && (
               <a

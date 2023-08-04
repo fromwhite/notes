@@ -1,10 +1,10 @@
 "use client";
-import Intro from "./intro.mdx";
+import IntroMDX from "./intro.mdx";
 
-export default () => {
+export const Intro = () => {
   return (
     <>
-      <Intro />
+      <IntroMDX />
     </>
   );
 };

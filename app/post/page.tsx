@@ -32,7 +32,7 @@ import Link from "next/link";
 
 let year = 0;
 
-export default function () {
+export default function Post() {
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );

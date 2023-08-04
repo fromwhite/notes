@@ -18,7 +18,7 @@ export const generateMetadata = ({ params }: PageProps) => {
   return { title: post?.title };
 };
 
-export default async function ({ params }: { params: { slug: string } }) {
+export default async function Slug({ params }: { params: { slug: string } }) {
   // Find the post for the current page.
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
 

@@ -4,9 +4,9 @@ import { GetStaticProps } from "next";
 import { compareDesc, format } from "date-fns";
 
 import { allPosts } from "contentlayer/generated";
-import Intro from "./intro";
+import { Intro } from "./intro";
 
-export default function () {
+export default function Home() {
   const latestPosts = allPosts
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
     .slice(0, 1);
@@ -20,8 +20,8 @@ export default function () {
           </div>
           <div className={styles.latest_posts}>
             <p className="font-w-600">Latest Posts</p>
-            {latestPosts.map((post) => (
-              <p>
+            {latestPosts.map((post, i) => (
+              <p key={i}>
                 <span className="space-gap">
                   {format(new Date(Date.parse(post.date)), "MMM dd")}
                 </span>
