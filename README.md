@@ -6,7 +6,7 @@ This is a very minimal experiments and should not be used in the product.It is a
 
 > I may be slow to complete.
 
-- [x] rendering MDX note/blog
+- [x] rendering MDX notes
 - [ ] publish snippets
 - [ ] silo +
 
