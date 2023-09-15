@@ -1,3 +1,6 @@
+// import "normalize.css";
+import "prism-theme-night-owl";
+// import "prism-theme-night-owl/build/light.css";
 import "./globals.css";
 import { Inter, Major_Mono_Display } from "next/font/google";
 

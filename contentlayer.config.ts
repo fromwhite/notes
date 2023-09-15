@@ -7,6 +7,12 @@ import {
 import rehypePrettyCode, {
   type Options as PrettyCodeOptions,
 } from "rehype-pretty-code";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeCodeTitles from "rehype-code-titles";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrism from "rehype-prism-plus";
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
 const computedFields: ComputedFields = {
   slug: {
@@ -41,4 +47,22 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "content",
   documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      rehypeCodeTitles,
+      rehypePrism,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ["anchor"],
+          },
+        },
+      ],
+      rehypeAccessibleEmojis,
+      rehypePrettyCode,
+    ],
+  },
 });

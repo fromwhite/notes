@@ -1,8 +1,6 @@
 import styles from "./page.module.css";
 import Link from "next/link";
-import { GetStaticProps } from "next";
 import { compareDesc, format } from "date-fns";
-
 import { allPosts } from "contentlayer/generated";
 import { Intro } from "./intro";
 
