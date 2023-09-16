@@ -24,7 +24,8 @@
 
   --code-pre-color: #403f53;
   --code-pre-font: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  --code-pre-selection: #fbfbfb;
+  /* --code-pre-selection: #fbfbfb; */
+  --code-pre-selection: #eaeaea;
   --not-pre-code-color: #fff;
   --not-pre-code-bg: #fbfbfb;
   --code-token-color-1: #989fb1;
