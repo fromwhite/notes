@@ -92,7 +92,7 @@ export const CMD = () => (
   </svg>
 );
 
-export const Day = () => (
+export const Sun = () => (
   <svg
     fill="none"
     height="24"
@@ -117,7 +117,7 @@ export const Day = () => (
   </svg>
 );
 
-export const Night = () => (
+export const Moon = () => (
   <svg
     fill="none"
     height="24"

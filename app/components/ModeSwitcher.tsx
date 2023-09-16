@@ -1,23 +1,24 @@
-"use client";
-import { Day, Night } from "./geist";
+import { Sun, Moon } from "./geist";
 import { Button } from "./ui";
 import { useDarkMode } from "./hook/useDarkMode";
+import { useHasMounted } from "./hook/useHasMounted";
 
 export const ModeSwitcher = () => {
   const [theme, set] = useDarkMode();
+  const isMounted = useHasMounted();
 
   return (
     <>
-      {theme == "light" ? (
+      {isMounted && theme == "light" ? (
         <Button
-          icon={<Day />}
+          icon={<Sun />}
           onClick={() => {
             set("dark");
           }}
         />
       ) : (
         <Button
-          icon={<Night />}
+          icon={<Moon />}
           onClick={() => {
             set("light");
           }}
