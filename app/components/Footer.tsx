@@ -3,13 +3,13 @@ export const Footer = () => {
     <footer>
       <div>
         <p>
-          © 2023{" "}
+          © 2023&nbsp;
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://fromwhite.xyz/"
+            href={process.env.NEXT_PUBLIC_FOOTER_LINK}
           >
-            White Balance
+            {process.env.NEXT_PUBLIC_FOOTER}
           </a>
         </p>
       </div>
