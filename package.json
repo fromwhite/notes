@@ -12,6 +12,7 @@
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@next/mdx": "^13.4.12",
+    "@stitches/react": "^1.2.8",
     "@types/mdx": "^2.0.5",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
@@ -21,7 +22,8 @@
     "date-fns": "^2.30.0",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.11",
-    "next": "13.4.11",
+    "framer-motion": "^10.16.4",
+    "next": "^13.4.19",
     "next-contentlayer": "^0.3.4",
     "normalize.css": "^8.0.1",
     "react": "18.2.0",
@@ -33,10 +35,10 @@
     "rehype-prism-plus": "^1.6.3",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^3.0.1",
+    "styled-components": "^6.0.8",
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.0.1",
     "sass": "^1.64.1"
   }
 }

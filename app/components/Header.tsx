@@ -1,60 +1,68 @@
-import styles from "./Header.module.scss";
 import Link from "next/link";
+import { useViewportScroll, motionValue } from "framer-motion";
 import { Avatar, Git, Twitter, Instagram } from "./geist";
 import { Panel } from "./Header.panel";
+import {
+  HeaderWrapper,
+  HeaderGrid,
+  HeaderFlex,
+  Inner,
+  Nav,
+  SvgLink,
+  TitleWrap,
+} from "./Styles";
 
 export const Header = () => {
+  // const { scrollY } = useViewportScroll();
+
   return (
-    <header className={styles.header}>
-      <div className={styles.wrapper}>
-        <div className={styles.inner}>
-          <div className={styles.brand}>
-            <Link className={styles.avatar} href="/">
+    <HeaderWrapper>
+      <HeaderGrid>
+        <HeaderFlex>
+          <Inner>
+            <Link className={"avatar"} href="/">
               <Avatar />
             </Link>
-            <div className={styles.title}>
+            <TitleWrap>
               <p>{process.env.NEXT_PUBLIC_TITLE}</p>
-            </div>
-          </div>
+            </TitleWrap>
+          </Inner>
 
-          <nav className={styles.nav}>
+          <Nav>
             {/* <span>Snippets</span> */}
 
             <Panel />
             {/* sns */}
             {process.env.NEXT_PUBLIC_TWITTER && (
-              <a
+              <SvgLink
                 href={process.env.NEXT_PUBLIC_TWITTER}
-                className={styles.svg}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Twitter />
-              </a>
+              </SvgLink>
             )}
             {process.env.NEXT_PUBLIC_INSTAGRAM && (
-              <a
+              <SvgLink
                 href={process.env.NEXT_PUBLIC_INSTAGRAM}
-                className={styles.svg}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Instagram />
-              </a>
+              </SvgLink>
             )}
             {process.env.NEXT_PUBLIC_GITHUB && (
-              <a
+              <SvgLink
                 href={process.env.NEXT_PUBLIC_GITHUB}
-                className={styles.svg}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Git />
-              </a>
+              </SvgLink>
             )}
-          </nav>
-        </div>
-      </div>
-    </header>
+          </Nav>
+        </HeaderFlex>
+      </HeaderGrid>
+    </HeaderWrapper>
   );
 };

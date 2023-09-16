@@ -2,6 +2,8 @@
 import "./globals.css";
 import { Inter, Major_Mono_Display } from "next/font/google";
 
+import { getCssText } from "./stitches.config";
+
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
@@ -50,6 +52,10 @@ export default function RootLayout({
           content="A minimalist notes/blog created by nxex.js on vercel"
         />
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <style
+          id="stitches"
+          dangerouslySetInnerHTML={{ __html: getCssText() }}
+        />
       </head>
       <body className={[major_mono.variable, inter.variable].join(" ")}>
         <script

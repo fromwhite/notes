@@ -38,8 +38,7 @@ export default function Post() {
   );
 
   return (
-    <div className="hero h-full px-6 pb-12 sm:px-12">
-      {/* Paginator */}
+    <div className="hero">
       <ul className="reset">
         {posts.map((post) => {
           const current = new Date(post.date).getFullYear();
