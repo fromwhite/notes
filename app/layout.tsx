@@ -1,6 +1,4 @@
 // import "normalize.css";
-import "prism-theme-night-owl";
-// import "prism-theme-night-owl/build/light.css";
 import "./globals.css";
 import { Inter, Major_Mono_Display } from "next/font/google";
 
@@ -45,6 +43,7 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         ></meta>
+        <meta name="color-scheme" content="light dark" />
         <meta name="keywords" content="silo note blog" />
         <meta
           name="description"
