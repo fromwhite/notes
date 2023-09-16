@@ -9,7 +9,7 @@ export const Panel = () => {
   return (
     // hasMounted &&
     <>
-      <Button icon={<CMD />} onClick={() => {}} aria={"CMD"} />
+      {/* <Button icon={<CMD />} onClick={() => {}} aria={"CMD"} /> */}
 
       <Button icon={<Tag />} onClick={() => {}} aria={"Tag"} />
 
