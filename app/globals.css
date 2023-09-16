@@ -21,6 +21,7 @@
   --selection: var(--cyan-light);
   --text-color: var(--foreground);
   --accents: #eaeaea;
+  --backdrop: rgba(249, 250, 251, 0.4);
 
   --code-pre-color: #403f53;
   --code-pre-font: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -51,6 +52,7 @@
   --selection: var(--highlight-purple);
   --accents: #333;
   --gray: #ededed;
+  --backdrop: rgba(22, 24, 29, 0.4);
 
   --code-pre-color: #d6deeb;
   --code-pre-selection: rgba(29, 59, 83, 0.99);
