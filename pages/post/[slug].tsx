@@ -1,11 +1,4 @@
 import styles from "./page.module.scss";
-import { allPosts } from "contentlayer/generated";
-import {
-  useMDXComponent,
-  getMDXComponent,
-  useLiveReload,
-} from "next-contentlayer/hooks";
-import type { Post as PostType } from "contentlayer/generated";
 import {
   GetStaticPathsResult,
   GetStaticPropsContext,
@@ -15,6 +8,14 @@ import {
 } from "next";
 import Head from "next/head";
 import { format, parseISO } from "date-fns";
+import {
+  useMDXComponent,
+  getMDXComponent,
+  useLiveReload,
+} from "next-contentlayer/hooks";
+
+import type { Post as PostType } from "contentlayer/generated";
+import { allPosts } from "contentlayer/generated";
 
 type PageProps = {
   params: {
