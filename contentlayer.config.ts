@@ -17,7 +17,7 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 const computedFields: ComputedFields = {
   slug: {
     type: "string",
-    resolve: (mdx) => mdx._raw.flattenedPath.split("/").slice(1).join("/"),
+    resolve: (mdx) => mdx._raw.sourceFileName.replace(/\.mdx$/, ""),
   },
 };
 
