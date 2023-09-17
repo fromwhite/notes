@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 
 // import { blogConfig } from "@/config";
-// import { PostPaginator } from "@/components/post-paginator";
+// import { PostPaginator } from "@/common/post-paginator";
 
 // const { url, title, description } = blogConfig.pages.posts;
 

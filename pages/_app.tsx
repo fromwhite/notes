@@ -4,8 +4,8 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 // import "normalize.css";
 
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import { Header } from "../common/Header";
+import { Footer } from "../common/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

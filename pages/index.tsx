@@ -22,7 +22,7 @@ import {
   IntroWrap,
   LatestPost,
   SpaceGapSpan,
-} from "./components/Styles";
+} from "../common/Styles";
 
 import Intro from "./intro.mdx";
 

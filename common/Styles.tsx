@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { styled } from "./stitches.config";
 
 /**
- * @/compontent/Header
+ * @/common/Header
  */
 export const HeaderWrapper = styled(motion.header, {
   height: "120px",
