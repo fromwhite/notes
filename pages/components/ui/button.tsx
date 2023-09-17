@@ -24,7 +24,7 @@ export type ButtonProps = Props & Attrs;
 
 export type ButtonType = "primary" | null;
 
-export function Button({
+export const Button = ({
   onClick,
   icon,
   type,
@@ -38,7 +38,7 @@ export function Button({
   aria,
   children,
   ...props
-}: ButtonProps) {
+}: ButtonProps) => {
   return (
     <button
       className={[
@@ -66,4 +66,4 @@ export function Button({
       {children}
     </button>
   );
-}
+};
