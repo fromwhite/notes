@@ -118,3 +118,24 @@ export const LatestPost = styled("div", {
 export const SpaceGapSpan = styled("span", {
   marginRight: "var(--space-gap-half)",
 });
+
+/**
+ * @/pages/post/[slug]
+ */
+export const Article = styled("article", {
+  p: {
+    lineHeight: "normal",
+  },
+});
+export const ArticlePostTime = styled("time", {
+  opacity: 0.8,
+  fontSize: "var(--font-s)",
+});
+export const ArticleTag = styled("span", {
+  opacity: 0.8,
+  margin: "0 var(--space-gap)",
+  fontSize: "var(--font-s)",
+  "> a": {
+    margin: "0 var(--space-gap-half3)",
+  },
+});

@@ -1,4 +1,3 @@
-import styles from "./page.module.scss";
 import {
   GetStaticPathsResult,
   GetStaticPropsContext,
@@ -13,9 +12,9 @@ import {
   getMDXComponent,
   useLiveReload,
 } from "next-contentlayer/hooks";
-
 import type { Post as PostType } from "contentlayer/generated";
 import { allPosts } from "contentlayer/generated";
+import { Article, ArticlePostTime, ArticleTag } from "@/common/Styles";
 
 type PageProps = {
   params: {
@@ -26,15 +25,6 @@ type PageProps = {
 type PostProps = {
   post: PostType;
 };
-
-// export const generateStaticParams = async () =>
-//   allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
-
-// export const generateMetadata = ({ params }: PageProps) => {
-//   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-
-//   return { title: post?.title };
-// };
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   return {
@@ -75,15 +65,18 @@ const Slug: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       <Head>
         <title>{post.title}</title>
       </Head>
-      <article className={[styles.post, `hero`].join(" ").trim()}>
-        {/* <div>
-          <h1>{post.title}</h1>
-          <time dateTime={post.date}>
-            {format(parseISO(post.date), "LLLL d, yyyy")}
-          </time>
-        </div> */}
+      <Article className={`hero`}>
+        <h1>{post.title}</h1>
+        <ArticlePostTime dateTime={post.date}>
+          {format(parseISO(post.date), "LLLL d, yyyy")}
+        </ArticlePostTime>
+        <ArticleTag>
+          {post.tags.map((item, i) => (
+            <a key={i}>{"#" + item}</a>
+          ))}
+        </ArticleTag>
         <MDXContent />
-      </article>{" "}
+      </Article>
     </>
   );
 };

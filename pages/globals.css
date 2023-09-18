@@ -3,6 +3,8 @@
   /* font-size: 62.5%; */
   /* font: 112.5%/1.45 Inter; */
   font-size: 16px;
+  --font-s: 0.875rem;
+  --space-gap-half3: 4px;
   --space-gap-half: 12px;
   --space-gap: 24px;
   --font-sans-fallback: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
