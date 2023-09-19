@@ -17,13 +17,13 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 const computedFields: ComputedFields = {
   slug: {
     type: "string",
-    resolve: (mdx) => mdx._raw.sourceFileName.replace(/\.mdx$/, ""),
+    resolve: (mdx) => mdx._raw.sourceFileName.replace(/\.(mdx|md)$/, ""),
   },
 };
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: `**/*.{md,mdx}`,
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
