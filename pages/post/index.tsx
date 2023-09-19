@@ -40,7 +40,7 @@ export default function Post() {
   );
 
   return (
-    <Layout title={process.env.NEXT_PUBLIC_TITLE}>
+    <Layout>
       <div className="hero">
         <ul className="reset" key={"reset"}>
           {posts.map((post, index) => {
