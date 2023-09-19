@@ -75,14 +75,6 @@
   --code-token-color-15: #d6deeb;
 }
 
-html {
-  touch-action: manipulation;
-  font-feature-settings: "rlig" 1, "calt" 0;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 code {
   font-family: var(--font-mono);
 }
@@ -161,6 +153,8 @@ html body {
 
 body,
 html {
+  touch-action: manipulation;
+  font-feature-settings: "rlig" 1, "calt" 0;
   text-rendering: optimizeLegibility;
   background-color: var(--background);
   color: var(--gray);

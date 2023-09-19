@@ -3,6 +3,7 @@ import { allPosts } from "contentlayer/generated";
 import { compareDesc, format } from "date-fns";
 import Link from "next/link";
 import React from "react";
+import { Layout } from "@/common/Layout";
 
 // import { blogConfig } from "@/config";
 // import { PostPaginator } from "@/common/post-paginator";
@@ -39,40 +40,46 @@ export default function Post() {
   );
 
   return (
-    <div className="hero">
-      <ul className="reset" key={"reset"}>
-        {posts.map((post, index) => {
-          const current = new Date(post.date).getFullYear();
-          let slash;
+    <Layout title={process.env.NEXT_PUBLIC_TITLE}>
+      <div className="hero">
+        <ul className="reset" key={"reset"}>
+          {posts.map((post, index) => {
+            const current = new Date(post.date).getFullYear();
+            let slash;
 
-          if (current !== year) {
-            slash = true;
-            year = current;
-          } else {
-            slash = false;
-          }
+            if (current !== year) {
+              slash = true;
+              year = current;
+            } else {
+              slash = false;
+            }
 
-          return (
-            <React.Fragment key={post._id + index}>
-              {slash ? (
-                <li key={current}>
-                  <p className="font-w-600">{current}</p>
+            return (
+              <React.Fragment key={post._id + index}>
+                {slash ? (
+                  <li key={current}>
+                    <p className="font-w-600">{current}</p>
+                  </li>
+                ) : null}
+                <li key={index}>
+                  <p>
+                    <span className="space-gap">
+                      {format(new Date(Date.parse(post.date)), "MMM dd")}
+                    </span>
+                    <Link
+                      key={post._id}
+                      href={post.url}
+                      aria-label={post.title}
+                    >
+                      {post.title}
+                    </Link>
+                  </p>
                 </li>
-              ) : null}
-              <li key={index}>
-                <p>
-                  <span className="space-gap">
-                    {format(new Date(Date.parse(post.date)), "MMM dd")}
-                  </span>
-                  <Link key={post._id} href={post.url} aria-label={post.title}>
-                    {post.title}
-                  </Link>
-                </p>
-              </li>
-            </React.Fragment>
-          );
-        })}
-      </ul>
-    </div>
+              </React.Fragment>
+            );
+          })}
+        </ul>
+      </div>
+    </Layout>
   );
 }

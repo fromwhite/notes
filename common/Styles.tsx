@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import { styled } from "./stitches.config";
+import { styled, css } from "./stitches.config";
 
 /**
  * @/common/Header
  */
 export const HeaderWrapper = styled(motion.header, {
-  height: "120px",
   position: "fixed",
   zIndex: 10,
   top: 0,
@@ -64,7 +63,6 @@ export const SvgLink = styled("a", {
 });
 
 export const TitleWrap = styled("div", {
-  font: "400 var(--font-major)",
   display: "flex",
   marginLeft: "var(--space-gap)",
   marginRight: "var(--space-gap)",
@@ -72,11 +70,16 @@ export const TitleWrap = styled("div", {
   flex: "1 1 0",
   maxWidth: "60vw",
 
-  p: {
+  a: {
     fontSize: "24px",
-    overflow: "hidden",
+    color: "var(--foreground)",
+    fontWeight: 600,
+    display: "inline-block",
+    width: "50vw",
     whiteSpace: "nowrap",
+    overflow: "hidden",
     textOverflow: "ellipsis",
+    textDecoration: "none",
   },
 });
 

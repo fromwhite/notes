@@ -15,12 +15,7 @@ import {
 import type { Post as PostType } from "contentlayer/generated";
 import { allPosts } from "contentlayer/generated";
 import { Article, ArticlePostTime, ArticleTag } from "@/common/Styles";
-
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
+import { Layout } from "@/common/Layout";
 
 type PostProps = {
   post: PostType;
@@ -65,18 +60,20 @@ const Slug: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       <Head>
         <title>{post.title}</title>
       </Head>
-      <Article className={`hero`}>
-        <h1>{post.title}</h1>
-        <ArticlePostTime dateTime={post.date}>
-          {format(parseISO(post.date), "LLLL d, yyyy")}
-        </ArticlePostTime>
-        <ArticleTag>
-          {post.tags.map((item, i) => (
-            <a key={i}>{"#" + item}</a>
-          ))}
-        </ArticleTag>
-        <MDXContent />
-      </Article>
+      <Layout head={{ title: post.title }}>
+        <Article className={`hero`}>
+          <h1>{post.title}</h1>
+          <ArticlePostTime dateTime={post.date}>
+            {format(parseISO(post.date), "LLLL d, yyyy")}
+          </ArticlePostTime>
+          <ArticleTag>
+            {post.tags.map((item, i) => (
+              <a key={i}>{"#" + item}</a>
+            ))}
+          </ArticleTag>
+          <MDXContent />
+        </Article>
+      </Layout>
     </>
   );
 };

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { compareDesc, format } from "date-fns";
 import { allPosts } from "contentlayer/generated";
 import { Inter, Major_Mono_Display } from "next/font/google";
+import { Layout } from "@/common/Layout";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,26 +32,27 @@ export default function Home() {
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
     .slice(0, 1);
   return (
-    <Main className={[major_mono.variable, inter.variable, "hero"].join(" ")}>
-      <MainFlex>
-        <IntroWrap>
-          <Intro />
-        </IntroWrap>
-
-        <LatestPost>
-          <p>Latest Posts</p>
-          {latestPosts.map((post, i) => (
-            <p key={i}>
-              <SpaceGapSpan>
-                {format(new Date(Date.parse(post.date)), "MMM dd")}
-              </SpaceGapSpan>
-              <Link key={post._id} href={post.url} aria-label={post.title}>
-                {post.title}
-              </Link>
-            </p>
-          ))}
-        </LatestPost>
-      </MainFlex>
-    </Main>
+    <Layout head={{ offsetHeight: 120 }}>
+      <Main className={[major_mono.variable, inter.variable, "hero"].join(" ")}>
+        <MainFlex>
+          <IntroWrap>
+            <Intro />
+          </IntroWrap>
+          <LatestPost>
+            <p>Latest Posts</p>
+            {latestPosts.map((post, i) => (
+              <p key={i}>
+                <SpaceGapSpan>
+                  {format(new Date(Date.parse(post.date)), "MMM dd")}
+                </SpaceGapSpan>
+                <Link key={post._id} href={post.url} aria-label={post.title}>
+                  {post.title}
+                </Link>
+              </p>
+            ))}
+          </LatestPost>
+        </MainFlex>
+      </Main>
+    </Layout>
   );
 }
