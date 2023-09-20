@@ -9,10 +9,10 @@ type LayoutProps = {
 
 export const Layout = ({ children, head, ...props }: LayoutProps) => {
   return (
-    <div>
+    <>
       <Header {...head} />
       {children}
       <Footer />
-    </div>
+    </>
   );
 };
