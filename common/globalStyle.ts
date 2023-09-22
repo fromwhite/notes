@@ -6,6 +6,7 @@ export const styles = {
   ":root": {
     "color-scheme": "light dark",
     "font-size": "16px",
+    "--font-ss": "0.75rem",
     "--font-s": "0.875rem",
     "--line-hs": "1.25rem",
     "--space-gap-half3": "4px",
@@ -211,7 +212,8 @@ export const styles = {
   footer: {
     width: "100%",
     /* font: 62.5%/1.45 var(--font-major); */
-    font: "14px var(--font-sans)",
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--font-ss)",
     padding: "var(--space-gap)",
     display: "flex",
     "justify-content": "flex-start",

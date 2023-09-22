@@ -58,7 +58,7 @@
 }
 
 .text {
-  font-size: 12px;
+  font-size: var(--font-ss);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
