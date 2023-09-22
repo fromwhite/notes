@@ -1,15 +1,13 @@
 /**
  * convert globals css to React style JSON
  * @stitches/react
- * todo: design system
  */
 export const styles = {
   ":root": {
     "color-scheme": "light dark",
-    /* font-size: 62.5%; */
-    /* font: 112.5%/1.45 Inter; */
     "font-size": "16px",
     "--font-s": "0.875rem",
+    "--line-hs": "1.25rem",
     "--space-gap-half3": "4px",
     "--space-gap-half": "12px",
     "--space-gap": "24px",
@@ -23,17 +21,38 @@ export const styles = {
     "--stroke-width-15": 1.5,
     "--cyan-light": "#79ffe1",
     "--highlight-purple": "#f81ce5",
-    "--foreground": "#000",
-    "--background": "#fff",
+
+    // colors typeface
+    "--color-s": "#0cce6b",
+    "--primary": "#000",
+    "--secondary": "hsla(0,0%,40%,1)",
+    "--tertiary": "#666",
+    "--bg-primary": "#fff",
+    "--bg-secondary": "#eaeaea",
     "--selection": "var(--cyan-light)",
-    "--text-color": "var(--foreground)",
+    "--text-color": "var(--primary)",
     "--accents": "#eaeaea",
     "--backdrop": "rgba(249, 250, 251, 0.4)",
+    "--border-radius-0": "4px",
+    "--border-radius-1": "8px",
+    "--border-radius-2": "16px",
+    "--border-color": "#eaeaea",
+
+    "--colors-brand": "rgb(14, 82, 241)",
+
+    "--body-shadow":
+      "1px 2px 2px rgba(201, 203, 207, 0.2), 2px 4px 4px rgba(201, 203, 207, 0.2), 4px 8px 8px rgba(201, 203, 207, 0.2), 8px 16px 16px rgba(201, 203, 207, 0.2), 16px 32px 32px rgba(201, 203, 207, 0.2)",
+
+    "--space-0": "0px",
+    "--space-1": "4px",
+    "--space-2": "8px",
+    "--space-3": "12px",
+    "--space-4": "16px",
+    "--space-5": "24px",
 
     "--code-pre-color": "#403f53",
     "--code-pre-font":
       'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
-    /* --code-pre-selection: #fbfbfb; */
     "--code-pre-selection": "#eaeaea",
     "--not-pre-code-color": "#fff",
     "--not-pre-code-bg": "#fbfbfb",
@@ -55,12 +74,21 @@ export const styles = {
   },
 
   ".dark-theme": {
-    "--foreground": "#fff",
-    "--background": "#000",
+    "--primary": "#fff",
+    "--secondary": "hsla(0,0%,63%)",
+    "--tertiary": "#888",
+    "--bg-primary": "#000",
+    "--bg-secondary": "#333",
     "--selection": "var(--highlight-purple)",
     "--accents": "#333",
     "--gray": "#ededed",
     "--backdrop": "rgba(22, 24, 29, 0.4)",
+    "--border-color": "#333",
+
+    "--colors-brand": "rgb(86, 134, 245)",
+
+    "--body-shadow":
+      '"1px 2px 2px rgba(2, 2, 3, 0.2),2px 4px 4px rgba(2, 2, 3, 0.2),4px 8px 8px rgba(2, 2, 3, 0.2),8px 16px 16px rgba(2, 2, 3, 0.2),16px 32px 32px rgba(2, 2, 3, 0.2)",',
 
     "--code-pre-color": "#d6deeb",
     "--code-pre-selection": "rgba(29, 59, 83, 0.99)",
@@ -157,7 +185,7 @@ export const styles = {
     "touch-action": "manipulation",
     "font-feature-settings": '"rlig" 1, "calt" 0',
     "text-rendering": "optimizeLegibility",
-    "background-color": "var(--background)",
+    "background-color": "var(--bg-primary)",
     color: "var(--gray)",
     "scroll-padding-top": "var(--top)",
     "-webkit-text-size-adjust": "100%",

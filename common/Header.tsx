@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Avatar, Git, Twitter, Instagram } from "./geist";
-import { Panel } from "./Header.panel";
+import { Panel } from "./Panel";
 import { useOffset } from "./hook/useOffset";
 import {
   HeaderWrapper,

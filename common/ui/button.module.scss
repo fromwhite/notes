@@ -21,7 +21,7 @@
   }
 
   &.primary {
-    background-color: var(--background);
+    background-color: var(--bg-primary);
     color: white;
 
     path {
@@ -31,7 +31,7 @@
 
   &:hover,
   &:focus {
-    border-color: var(--background);
+    border-color: var(--bg-primary);
   }
 }
 

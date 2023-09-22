@@ -10,7 +10,7 @@ export const triangle = (
     viewBox="0 0 24 24"
     width="24"
     // @ts-ignore
-    style="color:var(--foreground);width:24px;height:24px"
+    style="color:var(--primary);width:24px;height:24px"
   >
     <path
       fill-rule="evenodd"
@@ -50,7 +50,7 @@ export const Avatar = () => (
     width="30"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g fill="var(--foreground)">
+    <g fill="var(--primary)">
       <path
         clipRule="evenodd"
         d="M79.9074 23.7778C85.1439 23.7778 89.3889 19.5328 89.3889 14.2963C89.3889 9.05981 85.1439 4.81481 79.9074 4.81481C74.6709 4.81481 70.4259 9.05981 70.4259 14.2963C70.4259 19.5328 74.6709 23.7778 79.9074 23.7778ZM79.9074 28.5185C87.7621 28.5185 94.1296 22.151 94.1296 14.2963C94.1296 6.44157 87.7621 0.0740662 79.9074 0.0740662C72.0527 0.0740662 65.6852 6.44157 65.6852 14.2963C65.6852 22.151 72.0527 28.5185 79.9074 28.5185Z"
@@ -86,7 +86,7 @@ export const CMD = () => (
     strokeWidth="var(--stroke-width-1)"
     viewBox="0 0 24 24"
     width="24"
-    style={{ color: "var(--foreground)", width: "24px", height: "24px" }}
+    style={{ color: "var(--primary)", width: "24px", height: "24px" }}
   >
     <path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z" />
   </svg>
@@ -103,7 +103,7 @@ export const Sun = () => (
     strokeWidth="var(--stroke-width-1)"
     viewBox="0 0 24 24"
     width="24"
-    style={{ color: "var(--foreground)", width: "24px", height: "24px" }}
+    style={{ color: "var(--primary)", width: "24px", height: "24px" }}
   >
     <circle cx="12" cy="12" r="5" />
     <path d="M12 1v2" />
@@ -128,7 +128,7 @@ export const Moon = () => (
     strokeWidth="var(--stroke-width-1)"
     viewBox="0 0 24 24"
     width="24"
-    style={{ color: "var(--foreground)", width: "24px", height: "24px" }}
+    style={{ color: "var(--primary)", width: "24px", height: "24px" }}
   >
     <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
   </svg>
@@ -145,7 +145,7 @@ export const Git = () => (
     strokeWidth="var(--stroke-width-1)"
     viewBox="0 0 24 24"
     width="24"
-    style={{ color: "var(--foreground)", width: "24px", height: "24px" }}
+    style={{ color: "var(--primary)", width: "24px", height: "24px" }}
   >
     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
   </svg>
@@ -162,7 +162,7 @@ export const Tag = () => (
     strokeWidth="var(--stroke-width-1)"
     viewBox="0 0 24 24"
     width="24"
-    style={{ color: "var(--foreground)", width: "24px", height: "24px" }}
+    style={{ color: "var(--primary)", width: "24px", height: "24px" }}
   >
     <path d="M4 9h16" />
     <path d="M4 15h16" />
@@ -182,7 +182,7 @@ export const Twitter = () => (
     strokeWidth="var(--stroke-width-1)"
     viewBox="0 0 24 24"
     width="24"
-    style={{ color: "var(--foreground)", width: "24px", height: "24px" }}
+    style={{ color: "var(--primary)", width: "24px", height: "24px" }}
   >
     <path
       fill="var(--geist-fill)"
@@ -202,10 +202,75 @@ export const Instagram = () => (
     strokeWidth="var(--stroke-width-1)"
     viewBox="0 0 24 24"
     width="24"
-    style={{ color: "var(--foreground)", width: "24px", height: "24px" }}
+    style={{ color: "var(--primary)", width: "24px", height: "24px" }}
   >
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
     <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
     <path d="M17.5 6.5h.01" />
   </svg>
 );
+
+export const PostList = () => {
+  return (
+    <svg
+      fill="none"
+      height="24"
+      shapeRendering="geometricPrecision"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      width="24"
+      style={{ color: "var(--primary)", width: "24px", height: "24px" }}
+    >
+      <path d="M8 6h13" />
+      <path d="M8 12h13" />
+      <path d="M8 18h13" />
+      <path d="M3 6h.01" />
+      <path d="M3 12h.01" />
+      <path d="M3 18h.01" />
+    </svg>
+  );
+};
+
+export const HomeIcon = () => {
+  return (
+    <svg
+      fill="none"
+      height="24"
+      shapeRendering="geometricPrecision"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      width="24"
+      style={{ color: "var(--primary)", width: "24px", height: "24px" }}
+    >
+      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+      <path d="M9 22V12h6v10" />
+    </svg>
+  );
+};
+
+export const TragetIcon = () => {
+  return (
+    <svg
+      fill="none"
+      height="24"
+      shapeRendering="geometricPrecision"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      width="24"
+      style={{ color: "var(--primary)", width: "24px", height: "24px" }}
+    >
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  );
+};
