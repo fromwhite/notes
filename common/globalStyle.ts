@@ -241,6 +241,7 @@ export const styles = {
    * overriding code block styles in "prism-theme-night-owl"
    */
   pre: {
+    'font-size': '0.875rem',
     'border-radius': '0.5rem',
   },
 
