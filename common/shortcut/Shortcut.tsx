@@ -32,11 +32,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import FocusTrap from 'focus-trap-react'
 import { allPosts } from 'contentlayer/generated'
-import { useDarkMode } from './hook/useDarkMode'
-import { useDebounce } from './hook/useDebounce'
+import { useDarkMode } from '../hook/useDarkMode'
+import { useDebounce } from '../hook/useDebounce'
 
-import { css } from './stitches.config'
-import { Git, Twitter, PostList, HomeIcon, TragetIcon } from './geist'
+import { css } from '../stitches.config'
+import { Git, Twitter, PostList, HomeIcon, TragetIcon } from '../geist'
 import {
   Overlay,
   ShortcutBox,
@@ -58,7 +58,7 @@ import {
   KBD,
   Command,
   StyledSVG,
-} from './Styles'
+} from '../Styles'
 import { search as wasmSearch } from '@/wasm/xor/pkg'
 
 type Title = string

@@ -6,7 +6,7 @@ import { Button } from './ui'
 
 import dynamic from 'next/dynamic'
 
-const Shortcut = dynamic(() => import('./Shortcut'))
+const Shortcut = dynamic(() => import('./shortcut'))
 
 export const Panel = () => {
   const [showShortcut, setShowShortcut] = React.useState(false)
