@@ -59,11 +59,8 @@ import {
   Command,
   StyledSVG,
 } from '../Styles'
-import { search as wasmSearch } from '@/wasm/xor/pkg'
 
-type Title = string
-type Url = string
-type SearchResult = [Title, Url][]
+import { xorf } from './xor'
 
 interface Props {
   onClose: () => void
@@ -79,11 +76,6 @@ type Result = {
 type SearchError = {
   status: number
   statusText: string
-}
-
-export const xorf = async (term: string): Promise<SearchResult[]> => {
-  const results = await wasmSearch(term, 5)
-  return results
 }
 
 export default function Shortcut(props: Props) {
