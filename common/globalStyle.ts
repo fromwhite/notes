@@ -10,9 +10,10 @@ export const styles = {
     '--font-s': '0.875rem',
     '--font-h1': '1.5rem',
     '--line-hs': '1.25rem',
-    '--space-gap-half3': '4px',
-    '--space-gap-half': '12px',
-    '--space-gap': '24px',
+    '--gap': '24px', // Default full screen 1.5
+    '--gap-half3': '4px',
+    '--gap-half': '12px',
+    '--space-gap': 'var(--gap)', // Layout variable 14' laptop 2560x1440 1.5, 27' desktop 3840*2160 3.5+
     '--font-sans-fallback':
       '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI","Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans","Helvetica Neue", sans-serif',
     '--font-mono':
@@ -122,7 +123,7 @@ export const styles = {
   },
 
   'span.space-gap': {
-    'margin-right': 'var(--space-gap-half)',
+    'margin-right': 'var(--gap-half)',
   },
 
   '.ellipsis': {
@@ -212,17 +213,21 @@ export const styles = {
 
   footer: {
     width: '100%',
-    /* font: 62.5%/1.45 var(--font-major); */
     fontFamily: 'var(--font-sans)',
     fontSize: 'var(--font-ss)',
-    padding: 'var(--space-gap)',
+    padding: 'var(--gap) calc(var(--space-gap) + var(--gap) + 30px)',
     display: 'flex',
     'justify-content': 'flex-start',
   },
 
   '.hero': {
     'min-height': 'calc(100vh - 99px)',
-    padding: '120px var(--space-gap) 0',
+    padding: '120px calc(var(--space-gap) + var(--gap) + 30px) 0',
+
+    '> h2': {
+      fontWeight: 600,
+      fontSize: '1.33em',
+    },
   },
 
   '.loading': {

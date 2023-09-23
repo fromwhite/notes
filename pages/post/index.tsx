@@ -14,6 +14,7 @@ export default function Post() {
   return (
     <Layout>
       <div className="hero">
+        <h2>Posts</h2>
         <ul className="reset" key={'reset'}>
           {posts.map((post, index) => {
             const current = new Date(post.date).getFullYear()

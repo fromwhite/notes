@@ -48,6 +48,10 @@ export const Inner = styled('div', {
   },
 })
 
+/**
+ * Donot calculate padding when there are multiple logos
+ * Increasing right padding when exceeding Avatar 30px
+ */
 export const Nav = styled('nav', {
   display: 'flex',
   justifyContent: 'flex-end',
@@ -65,8 +69,8 @@ export const SvgLink = styled('a', {
 
 export const TitleWrap = styled('div', {
   display: 'flex',
-  marginLeft: 'var(--space-gap)',
-  marginRight: 'var(--space-gap)',
+  marginLeft: 'var(--gap)',
+  marginRight: 'var(--gap)',
   overflow: 'hidden',
   flex: '1 1 0',
   maxWidth: '60vw',
@@ -74,7 +78,7 @@ export const TitleWrap = styled('div', {
   a: {
     fontSize: 'var(--font-h1)',
     color: 'var(--primary)',
-    fontWeight: 600,
+    fontWeight: 500,
     display: 'inline-block',
     width: '50vw',
     whiteSpace: 'nowrap',
@@ -115,12 +119,12 @@ export const LatestPost = styled('div', {
   height: '60px',
 
   'p:first-child': {
-    fontWeight: 600,
+    fontWeight: 500,
   },
 })
 
 export const SpaceGapSpan = styled('span', {
-  marginRight: 'var(--space-gap-half)',
+  marginRight: 'var(--gap-half)',
 })
 
 /**
@@ -131,13 +135,14 @@ export const Article = styled('article', {
     lineHeight: '1.6',
     'letter-spacing': '0.3px',
   },
-  'h1,h2': {
-    marginTop: '1.9em',
+  'h1,h2,h3': {
+    marginTop: '2.75rem',
+    letterSpacing: '0.3px',
+    lineHeight: '1.6',
+    fontWeight: 600,
   },
   h2: {
     fontSize: '1.33em',
-    lineHeight: '1.6818',
-    letterSpacing: '0px',
   },
   blockquote: {
     backgroundColor: 'var(--bg-secondary)',
@@ -148,6 +153,12 @@ export const Article = styled('article', {
     //   fontSize: "0.875rem",
     // },
   },
+  img: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    margin: 'var(--gap-half) 0',
+  },
 })
 
 export const ArticlePostTime = styled('time', {
@@ -157,10 +168,10 @@ export const ArticlePostTime = styled('time', {
 
 export const ArticleTag = styled('span', {
   opacity: 0.8,
-  margin: '0 var(--space-gap)',
+  margin: '0 var(--gap)',
   fontSize: 'var(--font-s)',
   '> a': {
-    margin: '0 var(--space-gap-half3)',
+    margin: '0 var(--gap-half3)',
   },
 })
 
