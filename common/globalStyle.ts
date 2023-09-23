@@ -8,6 +8,7 @@ export const styles = {
     'font-size': '16px',
     '--font-ss': '0.75rem',
     '--font-s': '0.875rem',
+    '--font-h1': '1.5rem',
     '--line-hs': '1.25rem',
     '--space-gap-half3': '4px',
     '--space-gap-half': '12px',
