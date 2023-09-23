@@ -10,7 +10,7 @@
     "prebuild": "contentlayer build",
     "generate": "node --experimental-json-modules scripts/xor/index.mjs && cargo run scripts/xor && rm wasm/xor/pkg/.gitignore",
     "meta": "node scripts/meta.mjs",
-    "prepare": "npm run meta && npm run generate"
+    "_prepare": "npm run meta && npm run generate"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
