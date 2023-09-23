@@ -1,24 +1,23 @@
-import React from "react";
-import { useHotkeys, isHotkeyPressed } from "react-hotkeys-hook";
-import { CMD, Tag } from "./geist";
-import { ModeSwitcher } from "./ModeSwitcher";
-import { Button } from "./ui";
+import React from 'react'
+import { useHotkeys } from 'react-hotkeys-hook'
+import { CMD, Tag } from './geist'
+import { ModeSwitcher } from './ModeSwitcher'
+import { Button } from './ui'
 
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic'
 
-const Shortcut = dynamic(() => import("./Shortcut"));
+const Shortcut = dynamic(() => import('./Shortcut'))
 
 export const Panel = () => {
-  const [showShortcut, setShowShortcut] = React.useState(false);
+  const [showShortcut, setShowShortcut] = React.useState(false)
 
-  useHotkeys("mod+k", () => {
-    console.log(`Shortcut Key Test`);
-    setShowShortcut(!showShortcut);
-  });
+  useHotkeys('mod+k', () => {
+    setShowShortcut(!showShortcut)
+  })
 
-  useHotkeys("esc", () => {
-    setShowShortcut(false);
-  });
+  useHotkeys('esc', () => {
+    setShowShortcut(false)
+  })
 
   return (
     <>
@@ -27,7 +26,7 @@ export const Panel = () => {
       <Button
         icon={<Tag />}
         onClick={() => setShowShortcut(!showShortcut)}
-        aria={"Tag"}
+        aria={'Tag'}
       />
 
       {showShortcut ? (
@@ -36,5 +35,5 @@ export const Panel = () => {
 
       <ModeSwitcher />
     </>
-  );
-};
+  )
+}

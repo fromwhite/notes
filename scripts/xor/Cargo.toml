@@ -1,0 +1,24 @@
+[package]
+name = "xor"
+version = "0.1.0"
+edition = "2021"
+authors = ["Daw-Chih Liou <dawochih.liou@gmail.com>"]
+description = "Full text search made by Rust and WebAssembly"
+license = "MIT"
+documentation = "https://github.com/DawChihLiou/dawchihliou.github.io/blob/main/README.md"
+
+[dependencies]
+anyhow = "1.0"
+# The "derive" feature is only required when using #[derive(Serialize, Deserialize)] 
+# to make Serde work with structs and enums defined in your crate.
+serde = { version = "1.0", features = ["derive"] }
+# Support JSON data format for serde
+serde_json = "1.0"
+strip_markdown = "0.2"
+
+[dependencies.xorf]
+version = "0.8"
+features = ["serde"]
+
+[dependencies.bincode]
+version = "1.3"

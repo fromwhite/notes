@@ -1,29 +1,29 @@
-import { allPosts } from "contentlayer/generated";
-import { compareDesc, format } from "date-fns";
-import Link from "next/link";
-import React from "react";
-import { Layout } from "@/common/Layout";
+import { allPosts } from 'contentlayer/generated'
+import { compareDesc, format } from 'date-fns'
+import Link from 'next/link'
+import React from 'react'
+import { Layout } from '@/common/Layout'
 
-let year = 0;
+let year = 0
 
 export default function Post() {
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
-  );
+  )
 
   return (
     <Layout>
       <div className="hero">
-        <ul className="reset" key={"reset"}>
+        <ul className="reset" key={'reset'}>
           {posts.map((post, index) => {
-            const current = new Date(post.date).getFullYear();
-            let slash;
+            const current = new Date(post.date).getFullYear()
+            let slash
 
             if (current !== year) {
-              slash = true;
-              year = current;
+              slash = true
+              year = current
             } else {
-              slash = false;
+              slash = false
             }
 
             return (
@@ -36,7 +36,7 @@ export default function Post() {
                 <li key={index}>
                   <p>
                     <span className="space-gap">
-                      {format(new Date(Date.parse(post.date)), "MMM dd")}
+                      {format(new Date(Date.parse(post.date)), 'MMM dd')}
                     </span>
                     <Link
                       key={post._id}
@@ -48,10 +48,10 @@ export default function Post() {
                   </p>
                 </li>
               </React.Fragment>
-            );
+            )
           })}
         </ul>
       </div>
     </Layout>
-  );
+  )
 }

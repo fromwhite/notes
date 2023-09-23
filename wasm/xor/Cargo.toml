@@ -1,0 +1,27 @@
+[package]
+name = "xor"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wee_alloc = "0.4"
+once_cell = "1.8"
+anyhow = "1.0"
+bincode = "1.3"
+serde = { version = "1.0", features = ["derive"] }
+
+[dependencies.wasm-bindgen]
+version = "0.2"
+features = ["serde-serialize"]
+
+[dependencies.xorf]
+version = "0.8"
+default-features = false 
+features = ["serde"]
+
+[profile.release]
+opt-level = 's' 
+lto = true

@@ -7,11 +7,15 @@
     "build": "npm run prebuild & next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "contentlayer build"
+    "prebuild": "contentlayer build && npm run prepare",
+    "generate": "node --experimental-json-modules scripts/xor/index.mjs && cargo run scripts/xor && rm wasm/xor/pkg/.gitignore",
+    "meta": "node scripts/meta.mjs",
+    "prepare": "npm run meta && npm run generate"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
+    "@next/bundle-analyzer": "^13.5.2",
     "@next/mdx": "^13.4.12",
     "@stitches/react": "^1.2.8",
     "@types/mdx": "^2.0.5",
@@ -25,9 +29,11 @@
     "eslint-config-next": "13.4.11",
     "focus-trap-react": "^10.2.1",
     "framer-motion": "^10.16.4",
+    "globby": "^13.2.2",
     "next": "^13.4.19",
     "next-contentlayer": "^0.3.4",
     "normalize.css": "^8.0.1",
+    "prettier": "^3.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hotkeys-hook": "^4.4.1",
@@ -37,7 +43,9 @@
     "rehype-pretty-code": "^0.10.1",
     "rehype-prism-plus": "^1.6.3",
     "rehype-slug": "^6.0.0",
+    "remark": "^15.0.1",
     "remark-gfm": "^3.0.1",
+    "strip-markdown": "^5.0.1",
     "styled-components": "^6.0.8",
     "typescript": "5.1.6"
   },

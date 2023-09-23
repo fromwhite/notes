@@ -1,0 +1,11 @@
+[workspace]
+
+members = [
+  "scripts/xor",
+]
+
+exclude = [
+  "wasm/xor"
+]
+
+default-members = ["scripts/xor"]
