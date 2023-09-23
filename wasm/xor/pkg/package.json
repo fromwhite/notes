@@ -1,0 +1,16 @@
+{
+  "name": "xor",
+  "version": "0.1.0",
+  "files": [
+    "xor_bg.wasm",
+    "xor.js",
+    "xor_bg.js",
+    "xor.d.ts"
+  ],
+  "module": "xor.js",
+  "types": "xor.d.ts",
+  "sideEffects": [
+    "./xor.js",
+    "./snippets/*"
+  ]
+}
