@@ -19,8 +19,6 @@ module.exports = withContentlayer(
       reactStrictMode: true,
 
       webpack: function (config, { isServer }) {
-        // wasm support workaround
-        // https://github.com/vercel/next.js/issues/25852
         if (isServer) {
           config.output.webassemblyModuleFilename =
             './../static/wasm/[modulehash].wasm'
@@ -29,11 +27,6 @@ module.exports = withContentlayer(
             'static/wasm/[modulehash].wasm'
         }
 
-        // Since Webpack 5 doesn't enable WebAssembly by default, we should do it manually
-        /**
-         * 2023/9/23 issue
-         * https://github.com/vercel/next.js/issues/29362
-         */
         config.experiments = { asyncWebAssembly: true, layers: true }
 
         return config
