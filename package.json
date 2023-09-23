@@ -7,7 +7,7 @@
     "build": "npm run prebuild & next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "contentlayer build && npm run prepare",
+    "prebuild": "contentlayer build",
     "generate": "node --experimental-json-modules scripts/xor/index.mjs && cargo run scripts/xor && rm wasm/xor/pkg/.gitignore",
     "meta": "node scripts/meta.mjs",
     "prepare": "npm run meta && npm run generate"
