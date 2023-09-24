@@ -6,9 +6,6 @@
  */
 
 /**
- * - slow development in progress
- * todo: full text search
- *
  * Inspired by Daw-Chih Liou link: https://dawchihliou.github.io/articles/i-built-a-snappy-full-text-search-with-webassembly-rust-nextjs-and-xor-filters#final-thoughts
  * full text search use a lot of code
  * wasm/xor
@@ -118,13 +115,6 @@ export default function Shortcut(props: Props) {
         break
 
       default:
-        // setResults([
-        //   {
-        //     title: 'XOR is coming soon ✨ Roadmap ',
-        //     url: 'https://github.com/fromwhite/notes',
-        //   },
-        // ])
-
         const tupleResult = await xorf(query)
         const _result = Array.from(tupleResult, ([title, url]) => ({
           title,
