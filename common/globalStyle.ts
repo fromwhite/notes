@@ -219,7 +219,7 @@ export const styles = {
   footer: {
     width: '100%',
     fontFamily: 'var(--font-sans)',
-    fontSize: 'var(--font-ss)',
+    fontSize: 'var(--font-s)',
     padding: 'var(--gap) calc(var(--space-gap) + var(--gap) + 30px)',
     display: 'flex',
     'justify-content': 'flex-start',

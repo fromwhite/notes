@@ -136,7 +136,8 @@ export const Article = styled('article', {
     'letter-spacing': '0.3px',
   },
   'h1,h2,h3': {
-    marginTop: '2.75rem',
+    marginTop: '1.75rem',
+    marginBottom: '0.2rem',
     letterSpacing: '0.3px',
     lineHeight: '1.6',
   },
