@@ -3,18 +3,8 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { css } from '../stitches.config'
 import { Git, Twitter, PostList, HomeIcon, TragetIcon } from '../geist'
-import {
-  Flex,
-  MAX_HEIGHT,
-  EnterIcon,
-  Separator,
-  Item,
-  ItemText,
-  ShortcutList,
-  KBD,
-  Command,
-  StyledSVG,
-} from '../Styles'
+import { Flex, MAX_HEIGHT, EnterIcon, StyledSVG } from '../Styles'
+import { Separator, Item, ItemText, ShortcutList, KBD, Command } from './Styles'
 import useIndexItem from '../hook/useIndexItem'
 
 const CommandStaticWrapper = css({

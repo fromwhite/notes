@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import useIndexItem from '../hook/useIndexItem'
-
 import {
   Flex,
   ResultListWrapper,
@@ -12,7 +11,6 @@ import {
   Result,
   EnterIcon,
 } from '../Styles'
-
 import type { Result as SearchResult } from './types'
 
 interface SearchResultsProps {

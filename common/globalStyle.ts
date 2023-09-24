@@ -225,7 +225,6 @@ export const styles = {
     padding: '120px calc(var(--space-gap) + var(--gap) + 30px) 0',
 
     '> h2': {
-      fontWeight: 600,
       fontSize: '1.33em',
     },
   },

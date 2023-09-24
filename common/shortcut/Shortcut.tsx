@@ -35,15 +35,15 @@ import { xorf } from './xor'
 import type { Result, Status, SearchError } from './types'
 import { SearchResults } from './SearchResults'
 import { CommandStatic } from './CommandStatic'
+import { Flex } from '../Styles'
 import {
   Overlay,
   ShortcutBox,
-  Flex,
   FormBox,
   FormWrapper,
   SearchInput,
   SearchResultLabel,
-} from '../Styles'
+} from './Styles'
 
 interface Props {
   onClose: () => void
