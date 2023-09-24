@@ -120,6 +120,16 @@ export const styles = {
     padding: 'unset',
     margin: 'unset',
     'list-style-type': 'none',
+    'letter-spacing': '0.3px',
+
+    h4: {
+      'margin-bottom': 0,
+      'line-height': '1.6',
+    },
+
+    p: {
+      margin: '0.5rem 0',
+    },
   },
 
   'span.space-gap': {
@@ -204,11 +214,6 @@ export const styles = {
 
   'svg circle,svg line,svg path,svg polygon,svg rect': {
     'shape-rendering': 'geometricprecision',
-  },
-
-  /* general */
-  '.font-w-600': {
-    'font-weight': 600,
   },
 
   footer: {

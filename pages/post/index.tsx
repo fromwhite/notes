@@ -31,7 +31,7 @@ export default function Post() {
               <React.Fragment key={post._id + index}>
                 {slash ? (
                   <li key={current}>
-                    <p className="font-w-600">{current}</p>
+                    <h4>{current}</h4>
                   </li>
                 ) : null}
                 <li key={index}>
