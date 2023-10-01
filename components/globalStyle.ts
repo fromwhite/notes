@@ -139,6 +139,8 @@ export const styles = {
 
   'span.space-gap': {
     'margin-right': 'var(--gap-half)',
+    display: 'inline-block',
+    width: '60px',
   },
 
   '.ellipsis': {
