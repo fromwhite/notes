@@ -2,7 +2,7 @@ import { allPosts } from 'contentlayer/generated'
 import { compareDesc, format } from 'date-fns'
 import Link from 'next/link'
 import React from 'react'
-import { Layout } from '@/common/Layout'
+import { Layout } from '@/components/Layout'
 
 let year = 0
 

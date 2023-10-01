@@ -13,16 +13,23 @@
     "_prepare": "npm run meta && npm run generate"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.1",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@next/bundle-analyzer": "^13.5.2",
     "@next/mdx": "^13.4.12",
+    "@prisma/client": "^5.3.1",
     "@stitches/react": "^1.2.8",
+    "@trpc/client": "^10.38.4",
+    "@trpc/next": "^10.38.4",
+    "@trpc/react": "^9.27.4",
+    "@trpc/server": "^10.38.4",
     "@types/mdx": "^2.0.5",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "@vercel/analytics": "^1.0.1",
+    "argon2": "^0.31.1",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "eslint": "8.45.0",
@@ -31,12 +38,15 @@
     "framer-motion": "^10.16.4",
     "globby": "^13.2.2",
     "next": "^13.4.19",
+    "next-auth": "^4.13.0",
     "next-contentlayer": "^0.3.4",
     "normalize.css": "^8.0.1",
     "prettier": "^3.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.46.2",
     "react-hotkeys-hook": "^4.4.1",
+    "react-query": "^3.39.3",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-autolink-headings": "^7.0.0",
     "rehype-code-titles": "^1.2.0",
@@ -47,9 +57,12 @@
     "remark-gfm": "^3.0.1",
     "strip-markdown": "^5.0.1",
     "styled-components": "^6.0.8",
-    "typescript": "5.1.6"
+    "superjson": "^1.13.1",
+    "typescript": "5.1.6",
+    "zod": "^3.22.2"
   },
   "devDependencies": {
+    "prisma": "^5.3.1",
     "sass": "^1.64.1"
   }
 }

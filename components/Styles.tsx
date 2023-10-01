@@ -477,3 +477,106 @@ export const EnterIcon = (props: IconProps) => (
     />
   </StyledSVG>
 )
+
+export const InviteWrapper = styled('div', {
+  display: 'flex',
+  height: 'calc(100vh - 99px)',
+  flexDirection: 'column',
+  flexWrap: 'nowrap',
+  justifyContent: 'center',
+  alignItems: 'center',
+})
+
+export const InviteInput = styled('input', {
+  appearance: 'none',
+  outline: 'none',
+  width: '300px',
+  margin: '0px 20px',
+  padding: 'var(--input-inner-padding, 8px 40px 8px 16px)',
+  fontSize: 'var(--font-s)',
+  fontFamily: 'inherit',
+  lineHeight: '26px',
+  color: 'var(--primary)',
+  borderRadius: 'var(--border-radius-1)',
+  border: '1px solid var(--border-color)',
+  background: 'var(--bg-primary)',
+  boxShadow: '0px 0px 32px rgba(255, 255, 255, 0.2)',
+  // transition: 'border-color 0.3s ease 0s, box-shadow 0.3s ease 0s',
+})
+
+export const InviteBtn = styled('button', {
+  appearance: 'none',
+  '-webkit-tap-highlight-color': 'transparent',
+  'user-select': 'none',
+  outline: 'none',
+  cursor: 'pointer',
+  fontSize: 'var(--font-s)',
+  'font-style': 'inherit',
+  height: '44px',
+  padding: '11px 16px',
+  borderRadius: 'var(--border-radius-1)',
+  background: 'var(--bg-primary)',
+  border: '1px solid var(--border-color)',
+})
+
+/**
+ * SignIn box
+ */
+export const RegisterWarp = styled('div', {
+  display: 'flex',
+  'justify-content': 'center',
+  'align-items': 'center',
+  height: '100vh',
+})
+
+export const RegisterBox = styled('main', {
+  'max-width': '450px',
+  width: '100%',
+
+  h2: {
+    'font-weight': 700,
+    'font-size': '1.25rem',
+    'line-height': '1.75rem',
+    'margin-bottom': '0.375rem',
+  },
+
+  label: {
+    'font-size': '.875rem',
+    'line-height': '1.25rem',
+    'margin-top': '1rem',
+    display: 'inline-block',
+    color: 'var(--secondary)',
+  },
+
+  input: {
+    width: '100%',
+    height: '2.5rem',
+    'margin-top': '0.5rem',
+    padding: '0 8px',
+    appearance: 'none',
+    outline: 'none',
+    fontSize: 'var(--font-s)',
+    fontFamily: 'inherit',
+    lineHeight: '26px',
+    color: 'var(--primary)',
+    borderRadius: 'var(--border-radius-1)',
+    border: '1px solid var(--border-color)',
+    background: 'var(--bg-primary)',
+  },
+
+  button: {
+    appearance: 'none',
+    '-webkit-tap-highlight-color': 'transparent',
+    'user-select': 'none',
+    outline: 'none',
+    cursor: 'pointer',
+    fontSize: 'var(--font-s)',
+    'font-style': 'inherit',
+    width: '100%',
+    margin: '1.2rem 0 0.5rem',
+    padding: '11px 16px',
+    borderRadius: 'var(--border-radius-1)',
+    background: 'var(--bg-primary)',
+    border: '1px solid var(--border-color)',
+  },
+})

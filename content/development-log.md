@@ -39,7 +39,7 @@ tags:
 
 - Complete development of remaining features
 - Perform performance optimization and code review
-- Prepare test release of Version X tRPC
+- Prepare test release of Version tRPC
 
 ---
 

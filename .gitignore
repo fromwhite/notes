@@ -47,3 +47,5 @@ next-env.d.ts
 # wasm
 target
 storage
+
+.env

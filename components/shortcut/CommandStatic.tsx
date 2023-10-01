@@ -2,10 +2,18 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { css } from '../stitches.config'
-import { Git, Twitter, PostList, HomeIcon, TragetIcon } from '../geist'
+import {
+  Git,
+  Twitter,
+  PostIcon,
+  HomeIcon,
+  TragetIcon,
+  InviteIcon,
+} from '../geist'
 import { Flex, MAX_HEIGHT, EnterIcon, StyledSVG } from '../Styles'
 import { Separator, Item, ItemText, ShortcutList, KBD, Command } from './Styles'
 import useIndexItem from '../hook/useIndexItem'
+import { useSession } from 'next-auth/react'
 
 const CommandStaticWrapper = css({
   maxHeight: `${MAX_HEIGHT}px`,
@@ -13,20 +21,32 @@ const CommandStaticWrapper = css({
   padding: '0 8px',
 })
 
-const items = [
-  'spaces',
-  'home-navigation',
-  'post-navigation',
-  'twitter-social-link',
-  'github-link',
-]
-
 interface CommandStaticProps {
   collapse?: boolean
   onItemClick?: (item: string) => void
 }
 
 export const CommandStatic = (props: CommandStaticProps) => {
+  const { data: session, status } = useSession()
+
+  const items =
+    status === 'authenticated' && session.user.role === 'admin'
+      ? [
+          'spaces',
+          'home-navigation',
+          'post-navigation',
+          'invite-link',
+          'twitter-social-link',
+          'github-link',
+        ]
+      : [
+          'spaces',
+          'home-navigation',
+          'post-navigation',
+          'twitter-social-link',
+          'github-link',
+        ]
+
   const { collapse, onItemClick } = props
   const [hidden, setHidden] = React.useState(false)
 
@@ -153,11 +173,25 @@ export const CommandStatic = (props: CommandStaticProps) => {
         >
           <Link href="/post" passHref>
             <StyledSVG css={{ svg: { color: 'var(--tertiary)!important' } }}>
-              <PostList />
+              <PostIcon />
             </StyledSVG>
             <span style={{ marginLeft: '16px' }}>Posts</span>
           </Link>
         </Item>
+        {status === 'authenticated' && session.user.role === 'admin' ? (
+          <Item
+            data-selected={selectedResult === 'invite-link'}
+            id="invite-link"
+            key="invite-link"
+          >
+            <Link href="/invite" passHref>
+              <StyledSVG css={{ svg: { color: 'var(--tertiary)!important' } }}>
+                <InviteIcon />
+              </StyledSVG>
+              <span style={{ marginLeft: '16px' }}>Invite</span>
+            </Link>
+          </Item>
+        ) : null}
         <Separator>Links</Separator>
         <Item
           data-selected={selectedResult === 'twitter-social-link'}

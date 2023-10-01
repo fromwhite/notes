@@ -1,8 +1,8 @@
-import { Html, Head, Main, NextScript } from "next/document";
-import { getCssText, globalStyles } from "../common/stitches.config";
+import { Html, Head, Main, NextScript } from 'next/document'
+import { getCssText, globalStyles } from '../components/stitches.config'
 
 export default function Document() {
-  globalStyles();
+  globalStyles()
 
   return (
     <Html
@@ -41,5 +41,5 @@ export default function Document() {
         <NextScript />
       </body>
     </Html>
-  );
+  )
 }
