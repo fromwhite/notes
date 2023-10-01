@@ -5,14 +5,9 @@ export default function Document() {
   globalStyles()
 
   return (
-    <Html
-      lang="en"
-      dir="ltr"
-      color-scheme="light dark"
-      suppressHydrationWarning
-    >
+    <Html lang="en" dir="ltr" color-scheme="dark" suppressHydrationWarning>
       <Head>
-        <meta name="color-scheme" content="light dark" />
+        <meta name="color-scheme" content="dark" />
         <meta name="keywords" content="silo note blog" />
         <meta
           name="description"

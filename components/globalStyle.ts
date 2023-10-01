@@ -4,7 +4,7 @@
  */
 export const styles = {
   ':root': {
-    'color-scheme': 'light dark',
+    'color-scheme': 'dark',
     'font-size': '16px',
     '--font-ss': '0.75rem',
     '--font-s': '0.875rem',
