@@ -112,6 +112,11 @@ export const styles = {
     '--code-token-color-15': '#d6deeb',
   },
 
+  'input:-webkit-autofill': {
+    'background-color': 'transparent!important',
+    transition: 'background-color 0s 111111s',
+  },
+
   code: {
     'font-family': 'var(--font-mono)',
   },
