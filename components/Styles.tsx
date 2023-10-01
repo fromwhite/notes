@@ -573,6 +573,7 @@ export const RegisterBox = styled('main', {
     fontSize: 'var(--font-s)',
     'font-style': 'inherit',
     width: '100%',
+    color: 'var(--primary)',
     margin: '1.2rem 0 0.5rem',
     padding: '11px 16px',
     borderRadius: 'var(--border-radius-1)',

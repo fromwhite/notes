@@ -11,9 +11,9 @@ import { trpc } from '../../common/trpc'
 import { RegisterWarp, RegisterBox } from '@/components/Styles'
 import { requireAdmin } from '@/common/protect'
 
-// export const getServerSideProps = requireAdmin(async (ctx) => {
-//   return { props: {} }
-// })
+export const getServerSideProps = requireAdmin(async (ctx) => {
+  return { props: {} }
+})
 
 const SignUp: NextPage = () => {
   const router = useRouter()
