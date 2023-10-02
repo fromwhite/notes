@@ -136,8 +136,6 @@ export const Article = styled('article', {
     'letter-spacing': '0.3px',
   },
   'h1,h2,h3': {
-    marginTop: '1.75rem',
-    marginBottom: '0.2rem',
     letterSpacing: '0.3px',
     lineHeight: '1.6',
   },
@@ -158,6 +156,12 @@ export const Article = styled('article', {
     height: '100%',
     objectFit: 'cover',
     margin: 'var(--gap-half) 0',
+  },
+  '.contains-task-list': {
+    listStyle: 'none',
+  },
+  hr: {
+    margin: '2rem 0',
   },
 })
 
