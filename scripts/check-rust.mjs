@@ -16,7 +16,13 @@ function checkRustEnvironment() {
 function installRust() {
   try {
     console.log('Installing Rust...')
-    execSync("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh")
+    // execSync("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh")
+    execSync(
+      "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+    )
+    execSync(
+      'curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh -s -- -y'
+    )
     console.log('Rust installation successful.')
   } catch (error) {
     console.error('Failed to install Rust.')
