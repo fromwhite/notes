@@ -3,6 +3,7 @@
 use once_cell::sync::Lazy;
 use std::cmp::Reverse;
 use wasm_bindgen::prelude::*;
+use serde_wasm_bindgen::to_value;
 
 mod filter;
 mod storage;
@@ -56,5 +57,6 @@ pub fn search(query: String, per_page: usize) -> JsValue {
         .map(|(id, _score)| id)
         .collect();
 
-    JsValue::from_serde(&results).unwrap()
+    // JsValue::from_serde(&results).unwrap()
+    to_value(&results).unwrap()
 }

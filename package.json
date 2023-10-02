@@ -7,10 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "contentlayer build && npm run meta && npm run generate",
+    "prebuild": "contentlayer build",
     "generate": "node --experimental-json-modules scripts/xor/index.mjs && cargo run scripts/xor && rm wasm/xor/pkg/.gitignore",
     "meta": "node scripts/meta.mjs",
-    "prepare": "node scripts/check-rust.mjs"
+    "_prepare": "npm run meta && npm run generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.1",
