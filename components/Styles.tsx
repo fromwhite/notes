@@ -131,6 +131,9 @@ export const SpaceGapSpan = styled('span', {
  * @/pages/post/[slug]
  */
 export const Article = styled('article', {
+  'font-size': '16px',
+  lineHeight: '1.5',
+
   p: {
     lineHeight: '1.6',
     'letter-spacing': '0.3px',
@@ -160,8 +163,15 @@ export const Article = styled('article', {
   '.contains-task-list': {
     listStyle: 'none',
   },
+  '.task-list-item [type=checkbox]': {
+    margin: '0 0.2em 0.25em -1.4em',
+    'vertical-align': 'middle',
+  },
   hr: {
     margin: '2rem 0',
+  },
+  ul: {
+    paddingLeft: '2em',
   },
 })
 
