@@ -10,7 +10,18 @@ tags:
 ### Progress Updates
 
 - [x] Choose a backend solution
-- [ ] Learning about WebAuthn
+- [x] Learning about WebAuthn
+- [x] Invite-only registration
+
+### Issues and Challenges
+
+- WebAuthn has limited significance on PCs
+- Invitation-based registration needs to be simplified. Currently, a convenient email module is not available, so the registration process will be handled by the administrator.
+
+### Next Steps
+
+- reCAPTCHA
+- webrtc
 
 ---
 
