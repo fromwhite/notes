@@ -12,6 +12,7 @@ tags:
 - [x] Choose a backend solution
 - [x] Learning about WebAuthn
 - [x] Invite-only registration
+- [x] reCAPTCHA => cloudflare turnstile
 
 ### Issues and Challenges
 

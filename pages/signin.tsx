@@ -15,7 +15,15 @@ export const getServerSideProps = requireNotAuth(async (ctx) => {
   return { props: {} }
 })
 
-// reCAPTCHA
+// test reCAPTCHA => cloudflare turnstile
+/**
+ *  reference:
+ *  examples/cloudflare-turnstile
+ *  https://github.com/vercel/next.js/tree/dba978f4bac3a3f072dcbaff68bba3f75c2bbe15/examples/cloudflare-turnstile
+ *
+ *  https://docs.page/marsidev/react-turnstile/validating-a-token
+ * @returns
+ */
 export default function SignIn() {
   const router = useRouter()
   const formRef = useRef(null!)
