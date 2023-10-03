@@ -253,6 +253,10 @@ export const styles = {
     border: 0,
   },
 
+  '.cf-turnstile': {
+    marginTop: '1.2rem',
+  },
+
   /*
    * overriding code block styles in "prism-theme-night-owl"
    */
