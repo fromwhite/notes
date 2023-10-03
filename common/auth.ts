@@ -102,7 +102,7 @@ export const nextAuthOptions: NextAuthOptions = {
         session.user.role = token.role
       }
 
-      return Object.assign({ strategy: 'jwt' }, session)
+      return session
     },
   },
   jwt: {
