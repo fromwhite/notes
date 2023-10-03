@@ -4,6 +4,12 @@ import { verify } from 'argon2'
 import prisma from './prisma'
 import { SignInSchema } from './schema/auth'
 
+type cf_verify_type = {
+  success: boolean
+  message?: string
+  data?: any
+}
+
 export const nextAuthOptions: NextAuthOptions = {
   providers: [
     Credentials({
@@ -16,6 +22,7 @@ export const nextAuthOptions: NextAuthOptions = {
           placeholder: 'jsmith@gmail.com',
         },
         password: { label: 'Password', type: 'password' },
+        cf_turnstile: { type: 'toekn' },
       },
 
       /**
@@ -24,8 +31,35 @@ export const nextAuthOptions: NextAuthOptions = {
        * https://stackoverflow.com/questions/74089665/next-auth-credentials-provider-authorize-type-error
        */
       authorize: async (credentials) => {
+        const verifyEndpoint =
+          'https://challenges.cloudflare.com/turnstile/v0/siteverify'
+        const cf_secret = (
+          process.env.NODE_ENV == 'development'
+            ? process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY_DEV
+            : process.env.NODE_ENV === 'production'
+            ? process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY
+            : ''
+        ) as string
+
         try {
-          const { email, password } = await SignInSchema.parseAsync(credentials)
+          const { email, password, cf_turnstile } =
+            await SignInSchema.parseAsync(credentials)
+
+          if (!cf_turnstile) return null
+
+          const cf_verify = await fetch(verifyEndpoint, {
+            method: 'POST',
+            body: `secret=${encodeURIComponent(
+              cf_secret
+            )}&response=${encodeURIComponent(cf_turnstile)}`,
+            headers: {
+              'content-type': 'application/x-www-form-urlencoded',
+            },
+          })
+
+          const cf_verify_json = (await cf_verify.json()) as cf_verify_type
+
+          if (!cf_verify_json.success) return null
 
           const result = await prisma.user.findUnique({
             where: { email },

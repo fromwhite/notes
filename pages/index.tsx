@@ -32,6 +32,8 @@ const major_mono = Major_Mono_Display({
 export default function Home() {
   const { data: session, status } = useSession()
 
+  console.log('index login', session, status)
+
   // if (status === 'loading') {
   //   return (
   //     <Loading className={[major_mono.variable, inter.variable].join(' ')} />

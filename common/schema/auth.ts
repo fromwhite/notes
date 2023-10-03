@@ -3,6 +3,7 @@ import { object, string, TypeOf, infer, z } from 'zod'
 export const SignInSchema = z.object({
   email: z.string().email(),
   password: z.string().min(4).max(12),
+  cf_turnstile: z.string(),
 })
 
 export const signUpSchema = SignInSchema.extend({
