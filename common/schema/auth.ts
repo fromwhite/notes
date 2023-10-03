@@ -6,7 +6,7 @@ export const SignInSchema = z.object({
   cf_turnstile: z.string(),
 })
 
-export const signUpSchema = SignInSchema.extend({
+export const signUpSchema = SignInSchema.omit({ cf_turnstile: true }).extend({
   username: z.string(),
 })
 
