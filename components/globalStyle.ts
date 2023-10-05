@@ -132,9 +132,9 @@ export const styles = {
     },
   },
 
-  a: {
-    color: 'var(--primary)',
-  },
+  // a: {
+  //   color: 'var(--primary)',
+  // },
 
   'span.space-gap': {
     'margin-right': 'var(--gap-half)',
