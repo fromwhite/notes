@@ -7,7 +7,6 @@ tags:
 ---
 
 Before using MDX contentlayer, there were many blogs, such as jekyll hexo, and so on. They have a feature that I really like, which is using tag indexing.
-
 Another blog [forked from waynezhang/blog Tag](https://lhzhang.com/tags.html).
 
 Static pages can be deployed on Github and use vercel serverless as the backend.

@@ -141,6 +141,11 @@ export const Article = styled('article', {
   'h1,h2,h3': {
     letterSpacing: '0.3px',
     lineHeight: '1.6',
+    marginTop: '0px',
+    marginBottom: '0px',
+  },
+  'h1:not(:first-child),h2:not(:first-child),h3:not(:first-child)': {
+    marginTop: '28px',
   },
   h2: {
     fontSize: '1.33em',
@@ -148,8 +153,8 @@ export const Article = styled('article', {
   blockquote: {
     backgroundColor: 'var(--bg-secondary)',
     color: 'var(--secondary)',
-    padding: '0.875rem',
-    margin: '2.6rem',
+    padding: '0.05rem 0.875rem',
+    margin: '2.6rem 0',
     // p: {
     //   fontSize: "0.875rem",
     // },

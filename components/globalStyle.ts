@@ -236,7 +236,10 @@ export const styles = {
     padding: '120px calc(var(--space-gap) + var(--gap) + 30px) 0',
 
     '> h2': {
-      fontSize: '1.33em',
+      // fontSize: '1.33em',
+      marginTop: '0px',
+      'letter-spacing': '0.3px',
+      'line-height': '1.6',
     },
   },
 
