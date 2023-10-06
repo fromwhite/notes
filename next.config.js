@@ -18,6 +18,7 @@ module.exports = withContentlayer(
       swcMinify: true,
       reactStrictMode: true,
 
+      // https://github.com/vercel/next.js/issues/25852
       webpack: function (config, { isServer }) {
         if (isServer) {
           config.output.webassemblyModuleFilename =
@@ -26,9 +27,15 @@ module.exports = withContentlayer(
           config.output.webassemblyModuleFilename =
             'static/wasm/[modulehash].wasm'
         }
-
-        config.experiments = { asyncWebAssembly: true, layers: true }
         config.optimization.moduleIds = 'named'
+        config.module.rules.push({
+          test: /\.wasm$/,
+          type: 'webassembly/async',
+        })
+        config.experiments = {
+          asyncWebAssembly: true,
+          layers: true,
+        }
 
         return config
       },
