@@ -28,6 +28,7 @@ module.exports = withContentlayer(
         }
 
         config.experiments = { asyncWebAssembly: true, layers: true }
+        config.optimization.moduleIds = 'named'
 
         return config
       },
