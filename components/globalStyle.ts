@@ -132,9 +132,13 @@ export const styles = {
     },
   },
 
-  // a: {
-  //   color: 'var(--primary)',
-  // },
+  a: {
+    color: 'var(--primary)',
+  },
+
+  'a:hover,a:hover:visited,a:focus,a:focus:visited,a:active,a:active:visited': {
+    color: 'inherit',
+  },
 
   'span.space-gap': {
     'margin-right': 'var(--gap-half)',
