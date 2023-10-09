@@ -15,7 +15,7 @@ const App = ({ Component, pageProps }: CustomAppProps) => {
   return (
     <SessionProvider session={pageProps.session}>
       <Head>
-        <title>{process.env.NEXT_PUBLIC_TITLE || 'SILO'}</title>
+        <title>{process.env.NEXT_PUBLIC_TITLE || 'Note'}</title>
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>

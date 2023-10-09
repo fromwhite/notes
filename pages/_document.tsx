@@ -8,7 +8,7 @@ export default function Document() {
     <Html lang="en" dir="ltr" color-scheme="dark" suppressHydrationWarning>
       <Head>
         <meta name="color-scheme" content="dark" />
-        <meta name="keywords" content="silo note blog" />
+        <meta name="keywords" content="note blog" />
         <meta
           name="description"
           content="A minimalist notes/blog created by nxex.js on vercel"
