@@ -12,11 +12,11 @@ Another blog [forked from waynezhang/blog Tag](https://lhzhang.com/tags.html).
 Static pages can be deployed on Github and use vercel serverless as the backend.
 Full-text search is best done offline. In addition to indexing like jekyll, it can also be used for word segmentation and text similarity search.
 
-There is a game, Disco Elysium, that has a model called stream of consciousness that allows players to play without having to remember things. When the player needs it, it will come out on its own.
+There is a game, Disco Elysium, that has a model called stream of consciousness, which allows players to play the game without having to remember things. When the player thinks of a part, it will find the complete part.
 
-This is pretty close to what I was thinking, no need to remember what you wrote, just write. When I think of it at some point, the system calculates the correlation itself.
+This is pretty close to my idea, I don’t need to remember the specific content. When I remember a fragment of it, the model will figure out the associated complete part on its own.
 
-Unfortunately, I can't find a way to implement this idea. I copied the full-text search of this person [DawChihLiou](https://github.com/DawChihLiou). Vector similarity search written in Rust.
+Unfortunately, I can't find a way to implement this idea. I copied the full-text search of this guy's [DawChihLiou](https://github.com/DawChihLiou). Vector similarity search written in Rust.
 In 2019, I developed a topology editor using WebAssembly and was very impressed by it.
 His search can temporarily replace Tag. I hope to find a way to achieve it, to be continued.
 
