@@ -49,3 +49,4 @@ target
 storage
 
 .env
+.vercelignore
