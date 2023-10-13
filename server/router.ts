@@ -1,11 +1,12 @@
 import { initTRPC, TRPCError } from '@trpc/server'
 import { hash } from 'argon2'
-import { z } from 'zod'
 import superjson from 'superjson'
-
 import { Context } from './context'
 import { signUpSchema } from '../common/schema/auth'
 import { inviteSchema } from '../common/schema/invite'
+import { cfVerifyType, cf_verify } from '@/common/service'
+import { sendEmail } from '@/common/service'
+import { v4 as uuidv4 } from 'uuid'
 
 const t = initTRPC.context<Context>().create({
   transformer: superjson,
@@ -24,84 +25,96 @@ const isAuthed = t.middleware(({ next, ctx }) => {
 export const protectedProcedure = t.procedure.use(isAuthed)
 
 export const serverRouter = t.router({
-  signup: protectedProcedure
-    .input(signUpSchema)
-    .mutation(async ({ input, ctx }) => {
-      const { username, email, password } = input
+  signup: t.procedure.input(signUpSchema).mutation(async ({ input, ctx }) => {
+    const { username, email, password, cf_turnstile, token } = input
 
-      const exists = await ctx.prisma.user.findUnique({
-        where: { email },
+    if (!cf_turnstile || !token) {
+      throw new TRPCError({
+        code: 'CONFLICT',
+        message: 'Invalid credentials.',
       })
+    }
 
-      if (exists) {
-        throw new TRPCError({
-          code: 'CONFLICT',
-          message: 'User already exists.',
-        })
-      }
+    const cf_verified = await cf_verify(cf_turnstile)
+    const cf_verify_json = (await cf_verified.json()) as cfVerifyType
 
-      const hashedPassword = await hash(password)
-
-      const result = await ctx.prisma.user.create({
-        data: { username, email, password: hashedPassword },
+    if (!cf_verify_json.success) {
+      throw new TRPCError({
+        code: 'CONFLICT',
+        message: 'Invalid credentials.',
       })
+    }
 
-      return {
-        status: 201,
-        message: 'Account created successfully',
-        result: result.email,
-      }
-    }),
-  hello: t.procedure
-    .input(
-      z.object({
-        text: z.string(),
+    const invited = await ctx.prisma.invitation.findFirst({
+      where: { token, tokenUsed: false },
+    })
+
+    if (!invited) {
+      throw new TRPCError({
+        code: 'CONFLICT',
+        message: 'Invalid invited.',
       })
-    )
-    .query((opts) => {
-      return {
-        greeting: `hello ${opts.input.text}`,
-      }
-    }),
+    }
+
+    const exists = await ctx.prisma.user.findUnique({
+      where: { email },
+    })
+
+    if (exists) {
+      throw new TRPCError({
+        code: 'CONFLICT',
+        message: 'User already exists.',
+      })
+    }
+
+    const hashedPassword = await hash(password)
+
+    const result = await ctx.prisma.user.create({
+      data: { username, email, password: hashedPassword },
+    })
+
+    await ctx.prisma.invitation.update({
+      where: {
+        token,
+      },
+      data: {
+        tokenUsed: true,
+      },
+    })
+
+    return {
+      status: 201,
+      message: 'Account created successfully',
+      result: result.email,
+    }
+  }),
+
   invite: protectedProcedure
     .input(inviteSchema)
     .mutation(async ({ input, ctx }) => {
       try {
         const { email } = input
-        const hashedEmail = await hash(email)
 
-        const exists = await ctx.prisma.user.findUnique({
-          where: { email },
+        const token = uuidv4()
+
+        const link =
+          process.env.NODE_ENV == 'development'
+            ? process.env.LOCAL_URL
+            : process.env.NODE_ENV === 'production'
+            ? process.env.APP_URL
+            : ''
+
+        await sendEmail('No reply,', email, `${link}/invite/${token}`)
+
+        await ctx.prisma.invitation.create({
+          data: { token, email },
         })
 
-        if (exists) {
-          throw new TRPCError({
-            code: 'CONFLICT',
-            message: 'User already exists.',
-          })
-        }
-
-        const result = await ctx.prisma.user.create({
-          data: { username: email, email, password: hashedEmail },
-        })
-
-        // todo: invite guys via email,only admin register
-        // https://resend.com/docs/send-with-nextjs
-        // The verification link should be sent via email
-        // Not completing the email module, such as resend
-        // Account registration must now be completed by the system administrator
         return {
           status: 201,
-          message: 'Account created successfully',
-          result: { token: hashedEmail, email: result.email },
+          message: 'Invitation email sent successfully',
         }
       } catch (err: any) {
-        if (err.code === 'P2002') {
-          throw new TRPCError({
-            code: 'CONFLICT',
-            message: 'Email already exists',
-          })
-        }
         throw err
       }
     }),

@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Script from 'next/script'
 import { Layout } from '@/components/Layout'
 import { useRouter } from 'next/router'
@@ -6,29 +5,25 @@ import { InviteWrapper, RegisterWarp, RegisterBox } from '@/components/Styles'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useCallback, useState, useRef } from 'react'
-import { trpc } from '../common/trpc'
 import { signIn } from 'next-auth/react'
 import { SignInSchema, SignIn } from '../common/schema/auth'
 import { requireNotAuth } from '@/common/protect'
+import { useToast } from '@/components/ui/toast'
 
 export const getServerSideProps = requireNotAuth(async (ctx) => {
   return { props: {} }
 })
 
-// test reCAPTCHA => cloudflare turnstile
-/**
- *  reference:
- *  examples/cloudflare-turnstile
- *  https://github.com/vercel/next.js/tree/dba978f4bac3a3f072dcbaff68bba3f75c2bbe15/examples/cloudflare-turnstile
- *
- *  https://docs.page/marsidev/react-turnstile/validating-a-token
- * @returns
- */
 export default function SignIn() {
   const router = useRouter()
   const formRef = useRef(null!)
   const [loading, setLoading] = useState(false)
-  const { handleSubmit, control, reset } = useForm<SignIn>({
+  const {
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors },
+  } = useForm<SignIn>({
     defaultValues: {
       email: '',
       password: '',
@@ -37,22 +32,36 @@ export default function SignIn() {
     resolver: zodResolver(SignInSchema),
   })
 
+  const { Toast } = useToast()
+
+  errors.password && Toast(errors.password?.message as string)
+
   const onSubmit = useCallback(
     async (data: SignIn) => {
       const formData = new FormData(formRef.current)
       const cf_turnstile = formData.get('cf-turnstile-response')
 
       if (!cf_turnstile) {
-        console.error(`cloudflare turnstile failed`)
+        Toast(`cloudflare turnstile failed`)
         return
       }
 
       try {
         setLoading(true)
-        await signIn('credentials', { ...data, cf_turnstile, callbackUrl: '/' })
-        reset()
+        const result = await signIn('credentials', {
+          ...data,
+          cf_turnstile,
+          redirect: false,
+          // callbackUrl: router.asPath,
+        })
+
+        if (result?.ok) {
+          reset()
+          router.push('/')
+        } else {
+          Toast(result?.error as string)
+        }
         setLoading(false)
-        router.push('/')
       } catch (err) {
         console.error(err)
         setLoading(false)
@@ -72,7 +81,6 @@ export default function SignIn() {
         <RegisterWarp>
           <RegisterBox>
             <form ref={formRef} onSubmit={handleSubmit(onSubmit)}>
-              <h2>Welcome back!</h2>
               <Controller
                 name="email"
                 control={control}
@@ -82,6 +90,7 @@ export default function SignIn() {
                     <input
                       id="email"
                       type="email"
+                      aria-label="Email field"
                       placeholder="Type your email..."
                       {...field}
                     />
@@ -98,6 +107,7 @@ export default function SignIn() {
                     <input
                       id="password"
                       type="password"
+                      aria-label="Password field"
                       placeholder="Type your password..."
                       {...field}
                     />
@@ -107,6 +117,8 @@ export default function SignIn() {
 
               <div
                 className="cf-turnstile checkbox"
+                data-language="en"
+                data-theme={'auto'}
                 data-sitekey={
                   process.env.NODE_ENV == 'development'
                     ? process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY_DEV
@@ -116,12 +128,9 @@ export default function SignIn() {
                 }
               />
 
-              <div>
-                <button disabled={loading}>Sign In</button>
-                <Link href="/invite" className="link">
-                  Go to Sign Up
-                </Link>
-              </div>
+              <button disabled={loading} type="submit">
+                Sign In
+              </button>
             </form>
           </RegisterBox>
         </RegisterWarp>

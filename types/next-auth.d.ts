@@ -6,12 +6,14 @@ declare module 'next-auth' {
       userId: string
       username: string
       role: String
+      verified: boolean
     } & DefaultSession['user']
   }
 
   interface User extends DefaultUser {
     username: string
     role: String
+    verified: boolean
   }
 }
 
@@ -20,5 +22,6 @@ declare module 'next-auth/jwt' {
     userId: string
     username: string
     role: String
+    verified: boolean
   }
 }

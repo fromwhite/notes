@@ -4,6 +4,7 @@ import type { Session } from 'next-auth'
 import { SessionProvider } from 'next-auth/react'
 import { Analytics } from '@vercel/analytics/react'
 import { trpc } from '../common/trpc'
+import { ToastProvider } from '@/components/ui/toast'
 
 interface CustomAppProps extends AppProps {
   pageProps: {
@@ -19,9 +20,9 @@ const App = ({ Component, pageProps }: CustomAppProps) => {
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-
-      <Component {...pageProps} />
-
+      <ToastProvider>
+        <Component {...pageProps} />
+      </ToastProvider>
       <Analytics />
     </SessionProvider>
   )

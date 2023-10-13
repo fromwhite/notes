@@ -262,6 +262,13 @@ export const styles = {
 
   '.cf-turnstile': {
     marginTop: '1.2rem',
+
+    iframe: {
+      'border-color': 'var(--border-color)',
+      color: 'var(--primary)',
+      'background-color': 'var(--bg-primary)',
+      'border-radius': 'var(--border-radius-1)',
+    },
   },
 
   /*

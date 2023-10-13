@@ -3,6 +3,7 @@ import Credentials from 'next-auth/providers/credentials'
 import { verify } from 'argon2'
 import prisma from './prisma'
 import { SignInSchema } from './schema/auth'
+import { cfVerifyType, cf_verify } from '@/common/service'
 
 type cf_verify_type = {
   success: boolean
@@ -31,54 +32,36 @@ export const nextAuthOptions: NextAuthOptions = {
        * https://stackoverflow.com/questions/74089665/next-auth-credentials-provider-authorize-type-error
        */
       authorize: async (credentials) => {
-        const verifyEndpoint =
-          'https://challenges.cloudflare.com/turnstile/v0/siteverify'
-        const cf_secret = (
-          process.env.NODE_ENV == 'development'
-            ? process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY_DEV
-            : process.env.NODE_ENV === 'production'
-            ? process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY
-            : ''
-        ) as string
-
         try {
           const { email, password, cf_turnstile } =
             await SignInSchema.parseAsync(credentials)
 
-          if (!cf_turnstile) return null
+          if (!cf_turnstile) throw new Error('Invalid credentials')
 
-          const cf_verify = await fetch(verifyEndpoint, {
-            method: 'POST',
-            body: `secret=${encodeURIComponent(
-              cf_secret
-            )}&response=${encodeURIComponent(cf_turnstile)}`,
-            headers: {
-              'content-type': 'application/x-www-form-urlencoded',
-            },
-          })
+          const cf_verified = await cf_verify(cf_turnstile)
+          const cf_verify_json = (await cf_verified.json()) as cfVerifyType
 
-          const cf_verify_json = (await cf_verify.json()) as cf_verify_type
-
-          if (!cf_verify_json.success) return null
+          if (!cf_verify_json.success) throw new Error('Invalid credentials')
 
           const result = await prisma.user.findUnique({
             where: { email },
           })
 
-          if (!result) return null
+          if (!result) throw new Error('User does not exist')
 
           const isValidPassword = await verify(result.password, password)
 
-          if (!isValidPassword) return null
+          if (!isValidPassword) throw new Error('Incorrect password')
 
           return {
             id: result.id,
             email,
             role: result.role,
             username: result.username,
+            verified: result.verified,
           } as any
         } catch {
-          return null
+          throw new Error('Authentication failed')
         }
       },
     }),
@@ -90,6 +73,7 @@ export const nextAuthOptions: NextAuthOptions = {
         token.email = user.email
         token.username = user.username
         token.role = user.role
+        token.verified = user.verified
       }
 
       return token
@@ -100,6 +84,7 @@ export const nextAuthOptions: NextAuthOptions = {
         session.user.email = token.email
         session.user.username = token.username
         session.user.role = token.role
+        session.user.verified = token.verified
       }
 
       return session

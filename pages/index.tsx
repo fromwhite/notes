@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { compareDesc, format } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import { Layout } from '@/components/Layout'
-import { trpc } from '../common/trpc'
 import {
   Main,
   MainFlex,
@@ -11,8 +10,6 @@ import {
   SpaceGapSpan,
 } from '../components/Styles'
 import Intro from './intro.mdx'
-import { Loading } from '@/components/ui'
-import { useCallback } from 'react'
 import { useSession } from 'next-auth/react'
 
 import { Inter, Major_Mono_Display } from 'next/font/google'
@@ -30,27 +27,7 @@ const major_mono = Major_Mono_Display({
 })
 
 export default function Home() {
-  const { data: session, status } = useSession()
-
-  console.log('index login', session, status)
-
-  // if (status === 'loading') {
-  //   return (
-  //     <Loading className={[major_mono.variable, inter.variable].join(' ')} />
-  //   )
-  // }
-
-  // if (!session) {
-  //   return <div>Not authenticated</div>
-  // }
-
-  // const hello = trpc.hello.useQuery({ text: 'client' })
-
-  // if (!hello.data) {
-  //   return (
-  //     <Loading className={[major_mono.variable, inter.variable].join(' ')} />
-  //   )
-  // }
+  // const { data: session, status } = useSession()
 
   const latestPosts = allPosts
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))

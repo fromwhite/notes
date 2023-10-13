@@ -7,12 +7,14 @@ import { useCallback } from 'react'
 import { inviteSchema, InviteType } from '../../common/schema/invite'
 import { requireAdmin } from '@/common/protect'
 import { trpc } from '../../common/trpc'
+import { useToast } from '@/components/ui/toast'
 
 export const getServerSideProps = requireAdmin(async (ctx) => {
   return { props: {} }
 })
 
 export default function Invite() {
+  const { Toast } = useToast()
   const router = useRouter()
   const { handleSubmit, control, reset } = useForm<InviteType>({
     defaultValues: {
@@ -29,11 +31,12 @@ export default function Invite() {
         const result = await mutateAsync(data)
         if (result.status === 201) {
           reset()
+          Toast(result.message)
           // router.push('/')
-          router.push(`/invite/${result.result.token}`)
+          // router.push(`/invite/${result.result.token}`)
         }
       } catch (err) {
-        console.error(err)
+        Toast((err as { message: string }).message)
       }
     },
     [mutateAsync, router, reset]
