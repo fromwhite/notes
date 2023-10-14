@@ -28,7 +28,4 @@ This is a minimal product.It's an experiment for some inspiration, and it is not
 
 ## Stopgap
 
-The main branch is backup.  
-The note+ branch for deploy on Vercel.  
-The note branch for github Pages.  
-The content branch is the document.
+Deploy on github Pages
