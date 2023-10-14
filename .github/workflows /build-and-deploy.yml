@@ -7,10 +7,6 @@ on:
     branches:
       - note
 
-env:
-  GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
-  GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
