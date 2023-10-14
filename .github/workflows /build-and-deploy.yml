@@ -52,7 +52,7 @@ jobs:
       - name: Install twiggy
         run: cargo install twiggy
 
-      - name: Build WASM
+      - name: Build WASM 🚀
         run: npm run generate
 
       - name: Build project
