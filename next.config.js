@@ -17,6 +17,7 @@ module.exports = withContentlayer(
       pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
       swcMinify: true,
       reactStrictMode: true,
+      basePath: process.env.NODE_ENV === 'production' ? '/notes' || '' : '',
 
       // https://github.com/vercel/next.js/issues/25852
       // this fix is not permanent, this is just a stopgap solution
