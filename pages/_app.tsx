@@ -1,20 +1,10 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import type { Session } from 'next-auth'
-import { SessionProvider } from 'next-auth/react'
-import { Analytics } from '@vercel/analytics/react'
-import { trpc } from '../common/trpc'
 import { ToastProvider } from '@/components/ui/toast'
 
-interface CustomAppProps extends AppProps {
-  pageProps: {
-    session?: Session
-  } & AppProps['pageProps']
-}
-
-const App = ({ Component, pageProps }: CustomAppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <SessionProvider session={pageProps.session}>
+    <>
       <Head>
         <title>{process.env.NEXT_PUBLIC_TITLE || 'Note'}</title>
         <meta charSet="utf-8" />
@@ -23,9 +13,8 @@ const App = ({ Component, pageProps }: CustomAppProps) => {
       <ToastProvider>
         <Component {...pageProps} />
       </ToastProvider>
-      <Analytics />
-    </SessionProvider>
+    </>
   )
 }
 
-export default trpc.withTRPC(App)
+export default App

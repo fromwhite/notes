@@ -10,7 +10,6 @@ import {
   SpaceGapSpan,
 } from '../components/Styles'
 import Intro from './intro.mdx'
-import { useSession } from 'next-auth/react'
 
 import { Inter, Major_Mono_Display } from 'next/font/google'
 const inter = Inter({
@@ -27,8 +26,6 @@ const major_mono = Major_Mono_Display({
 })
 
 export default function Home() {
-  // const { data: session, status } = useSession()
-
   const latestPosts = allPosts
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
     .slice(0, 1)

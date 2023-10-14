@@ -13,7 +13,6 @@ import {
 import { Flex, MAX_HEIGHT, EnterIcon, StyledSVG } from '../Styles'
 import { Separator, Item, ItemText, ShortcutList, KBD, Command } from './Styles'
 import useIndexItem from '../hook/useIndexItem'
-import { useSession } from 'next-auth/react'
 
 const CommandStaticWrapper = css({
   maxHeight: `${MAX_HEIGHT}px`,
@@ -27,25 +26,13 @@ interface CommandStaticProps {
 }
 
 export const CommandStatic = (props: CommandStaticProps) => {
-  const { data: session, status } = useSession()
-
-  const items =
-    status === 'authenticated' && session.user.role === 'admin'
-      ? [
-          'spaces',
-          'home-navigation',
-          'post-navigation',
-          'invite-link',
-          'twitter-social-link',
-          'github-link',
-        ]
-      : [
-          'spaces',
-          'home-navigation',
-          'post-navigation',
-          'twitter-social-link',
-          'github-link',
-        ]
+  const items = [
+    'spaces',
+    'home-navigation',
+    'post-navigation',
+    'twitter-social-link',
+    'github-link',
+  ]
 
   const { collapse, onItemClick } = props
   const [hidden, setHidden] = React.useState(false)
@@ -178,20 +165,6 @@ export const CommandStatic = (props: CommandStaticProps) => {
             <span style={{ marginLeft: '16px' }}>Posts</span>
           </Link>
         </Item>
-        {status === 'authenticated' && session.user.role === 'admin' ? (
-          <Item
-            data-selected={selectedResult === 'invite-link'}
-            id="invite-link"
-            key="invite-link"
-          >
-            <Link href="/invite" passHref>
-              <StyledSVG css={{ svg: { color: 'var(--tertiary)!important' } }}>
-                <InviteIcon />
-              </StyledSVG>
-              <span style={{ marginLeft: '16px' }}>Invite</span>
-            </Link>
-          </Item>
-        ) : null}
         <Separator>Links</Separator>
         <Item
           data-selected={selectedResult === 'twitter-social-link'}
