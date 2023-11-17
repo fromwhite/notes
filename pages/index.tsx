@@ -34,7 +34,7 @@ export default function Home() {
     .slice(0, 1)
   return (
     <Layout head={{ offsetHeight: 120 }}>
-      <Main className={[major_mono.variable, inter.variable, 'hero'].join(' ')}>
+      <Main className={[major_mono.variable, inter.variable, 'main'].join(' ')}>
         <MainFlex>
           <IntroWrap>
             <Intro />
