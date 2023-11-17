@@ -81,7 +81,7 @@ export const TitleWrap = styled('div', {
   maxWidth: '60vw',
 
   '@media (max-width: 768px)': {
-    maxWidth: '30vw',
+    maxWidth: '23vw',
   },
 
   a: {
@@ -200,6 +200,7 @@ export const ArticleTag = styled('span', {
   fontSize: 'var(--font-s)',
   '> a': {
     margin: '0 var(--gap-half3)',
+    display: 'inline-block',
   },
 })
 
