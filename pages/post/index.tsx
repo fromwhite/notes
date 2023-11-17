@@ -13,7 +13,7 @@ export default function Post() {
 
   return (
     <Layout>
-      <div className="hero">
+      <div className="main">
         <h2>Posts</h2>
         <ul className="reset" key={'reset'}>
           {posts.map((post, index) => {

@@ -61,7 +61,7 @@ const Slug: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         <title>{post.title}</title>
       </Head>
       <Layout head={{ title: post.title }}>
-        <Article className={`hero`}>
+        <Article className={`main`}>
           <h1>{post.title}</h1>
           <ArticlePostTime dateTime={post.date}>
             {format(parseISO(post.date), 'LLLL d, yyyy')}

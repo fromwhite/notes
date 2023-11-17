@@ -10,8 +10,13 @@ export const HeaderWrapper = styled(motion.header, {
   zIndex: 10,
   top: 0,
   backdropFilter: 'blur(8px)',
+  // 'clip-path': 'inset(1px)',
   width: '100%',
   padding: '0 var(--space-gap)',
+
+  '@media (max-width: 768px)': {
+    backdropFilter: 'none',
+  },
 })
 
 export const HeaderGrid = styled('div', {
@@ -74,6 +79,10 @@ export const TitleWrap = styled('div', {
   overflow: 'hidden',
   flex: '1 1 0',
   maxWidth: '60vw',
+
+  '@media (max-width: 768px)': {
+    maxWidth: '30vw',
+  },
 
   a: {
     fontSize: 'var(--font-h1)',
@@ -362,7 +371,7 @@ export const ResultList = styled('ul', {
   borderRight: '1px solid var(--border-color)',
   borderBottom: '1px solid var(--border-color)',
 
-  '@media (max-width: 700px)': {
+  '@media (max-width: 768px)': {
     maxHeight: '450px',
   },
 })

@@ -1,5 +1,5 @@
 export const Loading = ({ className }: { className?: string }) => {
-  const defaultClassName = 'hero loading'
+  const defaultClassName = 'main loading'
   const combinedClassName = className
     ? `${defaultClassName} ${className}`
     : defaultClassName

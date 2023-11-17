@@ -22,7 +22,7 @@ export const ShortcutBox = styled('div', {
   width: '600px',
   borderRadius: 'var(--border-radius-1)',
 
-  '@media (max-width: 700px)': {
+  '@media (max-width: 768px)': {
     width: '95%',
   },
 })
@@ -187,6 +187,9 @@ export const ShortcutList = styled('div', {
   height: SHORTCUT_HEIGHT,
   padding: '0px 20px',
   borderTop: '1px solid var(--border-color)',
+  '@media (max-width: 768px)': {
+    gap: '2px',
+  },
 })
 
 const _KBD = styled('kbd', {})
