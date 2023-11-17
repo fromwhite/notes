@@ -182,7 +182,7 @@ export default function Shortcut(props: Props) {
                 css={{
                   position: 'relative',
                   flexDirection: 'column',
-                  '@media (max-width: 700px)': {
+                  '@media (max-width: 768px)': {
                     flexDirection: 'column-reverse',
                   },
                 }}

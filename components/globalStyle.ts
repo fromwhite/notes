@@ -129,6 +129,8 @@ export const styles = {
 
     p: {
       margin: '0.5rem 0',
+      display: 'flex',
+      'align-items': 'flex-start',
     },
   },
 
@@ -235,7 +237,7 @@ export const styles = {
     'justify-content': 'flex-start',
   },
 
-  '.hero': {
+  '.main': {
     'min-height': 'calc(100vh - 99px)',
     padding: '120px calc(var(--space-gap) + var(--gap) + 30px) 0',
 
@@ -271,12 +273,22 @@ export const styles = {
     },
   },
 
+  '@media only screen and (max-width: 768px)': {
+    '.main': {
+      padding: '120px var(--space-gap) 0',
+    },
+    footer: {
+      padding: 'var(--gap) var(--space-gap)',
+    },
+  },
+
   /*
    * overriding code block styles in "prism-theme-night-owl"
    */
   pre: {
     'font-size': '0.875rem',
     'border-radius': '0.5rem',
+    overflow: 'scroll',
   },
 
   'code[class*="language-"],pre[class*="language-"]': {
